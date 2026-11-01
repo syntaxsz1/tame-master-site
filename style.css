@@ -1,0 +1,415 @@
+/* Tame Master — shared site styles v5.
+   Detailed pixel-art theme: square beveled panels, hard offset shadows,
+   warm charcoal + ember backdrop, theme blue #3498db kept as accent only,
+   gold #f1c40f reserved for podium/Mythic.
+   v5: page reads black/charcoal + ember (no longer a blue page); panels are
+   warm charcoal darks; Chakra Petch carries all body/UI text (readable,
+   normal case); Press Start 2P kept only for the hero H1 and section
+   titles, at reduced sizes. Game emoji art is used as icons throughout.
+   Panels: 2px dark outline + inset pixel bevel (light top-left, dark
+   bottom-right) over the hard drop shadow. No rounded corners anywhere. */
+:root {
+  --bg: #14110d;
+  --bg2: #1c1813;
+  --panel: #221d16;
+  --panel2: #2a241a;
+  --border: #4a4136;
+  --edge: #050403;
+  --ink: #030202;
+  --text: #f2ede6;
+  --muted: #b0a696;
+  --blue: #3498db;
+  --blue-dark: #2470a3;
+  --gold: #f1c40f;
+  --silver: #cfd8dc;
+  --bronze: #cd7f32;
+  --green: #2ecc71;
+  --common: #95a5a6;
+  --rare: #3498db;
+  --epic: #9b59b6;
+  --legendary: #f1c40f;
+  --mythic: #e91e63;
+  --radius: 0;
+  --px-shadow: 4px 4px 0 var(--ink);
+  --px-shadow-sm: 3px 3px 0 var(--ink);
+  --font-px: "Press Start 2P", "Courier New", monospace;
+  --font-ui: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Chakra Petch", "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+  --bevel: inset 1px 1px 0 rgba(255, 240, 214, 0.10), inset -1px -1px 0 rgba(0, 0, 0, 0.38);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  line-height: 1.55;
+}
+/* Fixed scenic backdrop: ember-arena art under a heavy near-black warm
+   overlay, with a faint ember pixel grid layered on top. Content sections
+   and cards keep their own solid fills, so readability never depends on
+   the photo. */
+body::before {
+  content: "";
+  position: fixed; inset: 0; z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 170, 60, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 170, 60, 0.045) 1px, transparent 1px),
+    linear-gradient(rgba(13, 14, 8, 0.74), rgba(13, 14, 8, 0.86)),
+    url("assets/bg-field.webp");
+  background-size: 16px 16px, 16px 16px, cover, cover;
+  background-position: 0 0, 0 0, center, center;
+  background-repeat: repeat, repeat, no-repeat, no-repeat;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible { outline: 2px dashed var(--blue); outline-offset: 2px; }
+img { max-width: 100%; display: block; }
+
+.px, h1, section h2 {
+  font-family: var(--font-px);
+  font-weight: 400;
+}
+.brand, .btn, .tab,
+.stat .num, .card h3, .cmd-group h3, .arena-point h3, .rank-tier .tname {
+  font-family: var(--font-ui);
+  font-weight: 700;
+}
+
+/* v4: no rounded corners anywhere — square pixel panels only. */
+.btn, .tab, .card, .stat, .arena-band, .arena-point, .rank-tier,
+.mon, .cmd-group, .premium-box, .board-wrap, .empty-box, .chip,
+.rarity, .cmd code, .brand img, .trust-strip, .champion-card,
+.motd-card, .safety-card { border-radius: 0; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+/* Header / nav */
+header.site {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(12, 10, 8, 0.97);
+  border-bottom: 3px solid var(--border);
+}
+header.site .wrap {
+  display: flex; align-items: center; gap: 14px;
+  padding-top: 10px; padding-bottom: 10px; flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-size: 1rem; }
+.brand:hover { text-decoration: none; color: var(--blue); }
+.brand img { width: 34px; height: 34px; border: 2px solid var(--border); image-rendering: pixelated; }
+.brand .check { color: var(--blue); font-size: 0.8rem; }
+nav.main { margin-left: auto; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+nav.main a { color: var(--muted); font-weight: 600; }
+nav.main a:hover, nav.main a.active { color: var(--text); text-decoration: none; }
+
+/* Buttons — hard-shadow pixel style */
+.btn {
+  display: inline-block; padding: 12px 20px;
+  font-size: 1rem; line-height: 1.35;
+  border: 2px solid var(--ink);
+  box-shadow: var(--px-shadow), inset 1px 1px 0 rgba(255, 255, 255, 0.28), inset -1px -1px 0 rgba(0, 0, 0, 0.30);
+  cursor: pointer; text-align: center;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+.btn:hover {
+  text-decoration: none;
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink), inset 1px 1px 0 rgba(255, 255, 255, 0.28), inset -1px -1px 0 rgba(0, 0, 0, 0.30);
+}
+.btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--ink), inset 1px 1px 0 rgba(255, 255, 255, 0.28), inset -1px -1px 0 rgba(0, 0, 0, 0.30);
+}
+.btn-blue { background: var(--blue); color: #fff; }
+.btn-ghost { background: var(--panel2); color: var(--text); }
+.btn-small { padding: 8px 13px; font-size: 0.85rem; }
+
+/* Hero — no banner: the hunting field itself is the hero background.
+   The shade is darkest behind the title (top), lightens through the
+   middle so the meadow shows, and the sprites stand in the field's own
+   foreground grass. */
+.hero {
+  border-bottom: 3px solid var(--border);
+  background:
+    linear-gradient(rgba(9, 10, 7, 0.78) 0%, rgba(9, 10, 7, 0.55) 34%, rgba(9, 10, 7, 0.12) 62%, rgba(9, 10, 7, 0.30) 100%),
+    url("assets/bg-field.webp") center bottom / cover no-repeat,
+    var(--bg2);
+}
+.hero-sprites {
+  display: flex; justify-content: center; align-items: flex-end;
+  gap: 12px; margin-top: 26px; flex-wrap: nowrap;
+}
+.hero-sprites img {
+  image-rendering: pixelated; width: auto;
+  filter: drop-shadow(3px 3px 0 rgba(0, 0, 0, 0.35));
+}
+.hero-inner {
+  text-align: center; padding: 20px 16px 26px;  /* faint pixel dither behind the title block */
+  background-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.025) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.025) 75%),
+    linear-gradient(45deg, rgba(255, 255, 255, 0.025) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.025) 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+}
+.hero-inner h1 {
+  font-size: clamp(1.05rem, 3.8vw, 1.6rem);
+  line-height: 1.45;
+  text-shadow: 4px 4px 0 var(--ink);
+}
+.hero-inner h1 .check { color: var(--blue); font-size: 0.62em; vertical-align: middle; }
+.verified-note { color: var(--muted); margin-top: 10px; font-size: 0.95rem; }
+.hero-inner .tagline { font-size: 1.15rem; margin-top: 8px; text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.55); }
+.hero-buttons { margin-top: 16px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* Stats strip */
+.stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  margin: 20px 0 2px;
+}
+.stat {
+  background: var(--panel); border: 2px solid var(--edge);
+  box-shadow: var(--px-shadow-sm), var(--bevel);
+  padding: 11px 10px; text-align: center;
+}
+.stat .num { font-size: 1.4rem; color: var(--blue); line-height: 1.3; }
+.stat .lbl { color: var(--muted); font-size: 0.92rem; margin-top: 2px; }
+
+/* Sections */
+section { padding: 42px 0 8px; }
+section h2 { font-size: clamp(0.8rem, 2.4vw, 1.05rem); line-height: 1.7; margin-bottom: 12px; }
+section h2::after {
+  content: ""; display: block;
+  width: 56px; height: 4px; margin-top: 10px;
+  background: var(--blue);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+section .sub { color: var(--muted); margin-bottom: 20px; max-width: 720px; }
+
+/* Cards grid */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
+.card {
+  background: var(--panel); border: 2px solid var(--edge);
+  box-shadow: var(--px-shadow), var(--bevel);
+  padding: 18px;
+}
+.card h3 { font-size: 1.05rem; line-height: 1.35; margin-bottom: 8px; color: var(--text); display: flex; align-items: center; gap: 10px; }
+.card-ico { width: 32px; height: 32px; flex: 0 0 auto; image-rendering: pixelated; }
+.card-ico.tall { width: auto; height: 36px; }
+.stat .sico { width: 30px; height: 30px; margin: 0 auto 5px; image-rendering: pixelated; }
+h2 .hico { width: 28px; height: 28px; display: inline-block; vertical-align: -5px; margin-right: 9px; image-rendering: pixelated; }
+.tab img { width: 20px; height: 20px; image-rendering: pixelated; }
+.card p { color: var(--muted); font-size: 0.95rem; }
+
+/* Arena band */
+.arena-band {
+  background: var(--bg2);
+  border: 2px solid var(--edge);
+  box-shadow: var(--px-shadow), var(--bevel);
+  padding: 26px 22px 24px;
+  margin-top: 42px;
+}
+.arena-band .sub { margin-bottom: 16px; }
+.arena-points { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 20px; }
+.arena-point {
+  background: var(--panel); border: 2px solid var(--edge);
+  box-shadow: var(--px-shadow-sm), var(--bevel);
+  padding: 14px 16px;
+}
+.arena-point h3 { font-size: 0.95rem; line-height: 1.35; margin-bottom: 6px; color: var(--blue); }
+.arena-point p { color: var(--muted); font-size: 0.93rem; }
+.ranks {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  padding: 4px 2px 12px; margin-bottom: 18px;
+}
+.rank-tier {
+  flex: 0 0 auto; width: 102px; text-align: center;
+  background: var(--panel); border: 2px solid var(--edge);
+  box-shadow: var(--px-shadow-sm), var(--bevel);
+  padding: 10px 6px 9px;
+}
+.rank-tier img { width: 56px; height: 56px; margin: 0 auto 7px; }
+.rank-tier .tname { font-size: 0.82rem; line-height: 1.35; }
+.rank-tier.top { border-color: var(--gold); box-shadow: var(--px-shadow-sm), 0 0 14px rgba(241, 196, 15, 0.35), var(--bevel); }
+.rank-tier.top .tname { color: var(--gold); }
+
+/* Leaderboard teaser (home) */
+.teaser-table { margin-bottom: 16px; }
+
+/* Showcase */
+.showcase { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+.mon {
+  background: var(--panel); border: 2px solid var(--edge);
+  box-shadow: var(--px-shadow), var(--bevel);
+  padding: 14px 10px 12px; text-align: center;
+}
+.mon img { width: 120px; height: 120px; object-fit: contain; margin: 0 auto 8px; image-rendering: pixelated; }
+.mon .mname { font-weight: 700; }
+.mon[data-r="common"]    { box-shadow: var(--px-shadow), 0 0 12px rgba(149, 165, 166, 0.22), var(--bevel); }
+.mon[data-r="rare"]      { border-color: #1d4e6e; box-shadow: var(--px-shadow), 0 0 14px rgba(52, 152, 219, 0.35), var(--bevel); }
+.mon[data-r="epic"]      { border-color: #5e3370; box-shadow: var(--px-shadow), 0 0 14px rgba(155, 89, 182, 0.40), var(--bevel); }
+.mon[data-r="legendary"] { border-color: #8a6d1c; box-shadow: var(--px-shadow), 0 0 14px rgba(241, 196, 15, 0.40), var(--bevel); }
+.mon[data-r="mythic"]    { border-color: #8f1440; box-shadow: var(--px-shadow), 0 0 16px rgba(233, 30, 99, 0.45), var(--bevel); }
+.rarity { display: inline-block; margin-top: 4px; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.01em; padding: 2px 9px; border: 2px solid; }
+.r-common { color: var(--common); border-color: var(--common); }
+.r-rare { color: var(--rare); border-color: var(--rare); }
+.r-epic { color: var(--epic); border-color: var(--epic); }
+.r-legendary { color: var(--legendary); border-color: var(--legendary); }
+.r-mythic { color: var(--mythic); border-color: var(--mythic); }
+
+/* Commands */
+.cmd-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+.cmd-group { background: var(--panel); border: 2px solid var(--edge); box-shadow: var(--px-shadow), var(--bevel); padding: 18px; }
+.cmd-group h3 { margin-bottom: 12px; font-size: 1.05rem; line-height: 1.35; display: flex; align-items: center; gap: 9px; }
+.gico { width: 24px; height: 24px; flex: 0 0 auto; image-rendering: pixelated; }
+.cmd { display: flex; gap: 10px; padding: 5px 0; font-size: 0.94rem; }
+.cmd code {
+  background: var(--panel2); border: 1px solid var(--border);
+  padding: 0 7px; font-family: var(--font-ui); font-size: 0.92rem;
+  color: #7ec3f2; white-space: nowrap; height: fit-content;
+}
+.cmd span { color: var(--muted); }
+
+/* Premium — gold treatment */
+.premium-box {
+  background: var(--panel);
+  border: 3px solid var(--gold);
+  box-shadow: var(--px-shadow), 0 0 22px rgba(241, 196, 15, 0.20), inset 0 0 0 2px rgba(241, 196, 15, 0.28), inset 1px 1px 0 rgba(255, 255, 255, 0.14), inset -1px -1px 0 rgba(0, 0, 0, 0.40);
+  padding: 22px;
+}
+.premium-box ul { list-style: none; margin-top: 10px; }
+.premium-box li { padding: 6px 0; border-bottom: 1px solid var(--border); color: var(--muted); }
+.premium-box li img.pico { width: 22px; height: 22px; display: inline-block; vertical-align: -5px; margin-right: 8px; image-rendering: pixelated; }
+.premium-box li:last-child { border-bottom: none; }
+.premium-box li strong { color: var(--text); }
+
+/* Leaderboards */
+.tabs { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0; }
+.tab {
+  background: var(--panel2); color: var(--muted);
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 2px solid var(--ink);
+  box-shadow: var(--px-shadow-sm), inset 1px 1px 0 rgba(255, 255, 255, 0.12), inset -1px -1px 0 rgba(0, 0, 0, 0.30);
+  padding: 10px 15px; font-size: 0.95rem; line-height: 1.35; cursor: pointer;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+.tab:hover { color: var(--text); transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--ink), inset 1px 1px 0 rgba(255, 255, 255, 0.12), inset -1px -1px 0 rgba(0, 0, 0, 0.30); }
+.tab:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink), inset 1px 1px 0 rgba(255, 255, 255, 0.12), inset -1px -1px 0 rgba(0, 0, 0, 0.30); }
+.tab.active { background: var(--blue); color: #fff; }
+.board-wrap { border: 2px solid var(--edge); box-shadow: var(--px-shadow), var(--bevel); }
+table.board { width: 100%; border-collapse: collapse; background: var(--panel); }
+table.board th, table.board td { text-align: left; padding: 11px 14px; font-size: 0.96rem; }
+table.board th { background: #0c0a07; color: var(--muted); font-size: 0.88rem; letter-spacing: 0.02em; border-bottom: 2px solid var(--blue); }
+table.board tr + tr td { border-top: 1px solid var(--border); }
+table.board tbody tr:hover td { background: rgba(52, 152, 219, 0.06); }
+table.board td.rank { font-weight: 700; color: var(--blue); width: 64px; }
+table.board td.detail { color: var(--muted); }
+.chip {
+  display: inline-block; min-width: 32px; text-align: center;
+  padding: 2px 7px; font-weight: 700;
+  border: 2px solid var(--ink); box-shadow: 2px 2px 0 var(--ink), inset 1px 1px 0 rgba(255, 255, 255, 0.35);
+}
+.chip-1 { background: var(--gold); color: #241c00; }
+.chip-2 { background: var(--silver); color: #16202a; }
+.chip-3 { background: var(--bronze); color: #241300; }
+.board-note { color: var(--muted); margin-top: 12px; font-size: 0.92rem; }
+.empty-box {
+  background: var(--panel); border: 2px solid var(--edge);
+  box-shadow: var(--px-shadow), var(--bevel);
+  padding: 22px; color: var(--muted);
+}
+
+/* Footer */
+footer.site { border-top: 3px solid var(--border); margin-top: 56px; padding: 26px 0 34px; background: var(--bg2); }
+footer.site .wrap { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
+footer.site .links { display: flex; gap: 18px; flex-wrap: wrap; }
+footer.site .fine { color: var(--muted); font-size: 0.88rem; width: 100%; margin-top: 8px; }
+
+/* --- v6 pass: pro + competitive + kid-friendly --- */
+
+/* Trust strip under the hero */
+.trust-strip {
+  display: flex; flex-wrap: wrap; gap: 10px 26px; align-items: center;
+  background: var(--panel); border: 2px solid var(--edge);
+  box-shadow: var(--px-shadow-sm), var(--bevel);
+  padding: 12px 18px; margin-top: 26px;
+  font-size: 0.93rem; font-weight: 600;
+}
+.trust-item { display: inline-flex; align-items: center; gap: 8px; color: var(--text); }
+a.trust-item { color: var(--blue); }
+a.trust-item:hover { color: var(--text); }
+.trust-item img { width: 20px; height: 20px; image-rendering: pixelated; }
+
+/* Split countdown + kid-simple sub-lines */
+.split-countdown {
+  font-family: var(--font-ui); font-weight: 700;
+  color: var(--gold); font-size: 1rem; margin-bottom: 18px;
+}
+.kid-note { color: var(--muted); font-size: 0.85rem; margin-top: 7px; opacity: 0.85; }
+
+/* Home boards: champion spotlight + Coins | Arena duo */
+.boards-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.board-col .sub { margin-bottom: 14px; }
+#champion-slot { margin-bottom: 22px; }
+#champion-slot:empty { margin-bottom: 0; }
+.champion-card {
+  display: flex; align-items: center; gap: 18px;
+  background: var(--panel);
+  border: 3px solid var(--gold);
+  box-shadow: var(--px-shadow), 0 0 22px rgba(241, 196, 15, 0.20), inset 0 0 0 2px rgba(241, 196, 15, 0.28), inset 1px 1px 0 rgba(255, 255, 255, 0.14), inset -1px -1px 0 rgba(0, 0, 0, 0.40);
+  padding: 18px 20px;
+}
+.champion-card .champ-crown { width: 52px; height: 52px; flex: 0 0 auto; image-rendering: pixelated; }
+.champ-label {
+  font-family: var(--font-px); font-size: 0.62rem; line-height: 1.6;
+  color: var(--gold); letter-spacing: 0.02em;
+}
+.champ-name { font-family: var(--font-ui); font-weight: 700; font-size: 1.3rem; line-height: 1.3; }
+.champ-stats { display: flex; gap: 10px 22px; flex-wrap: wrap; margin-top: 4px; }
+.champ-stat { color: var(--muted); font-weight: 600; }
+.rank-badge-inline { width: 24px; height: 24px; display: inline-block; vertical-align: -6px; margin-right: 8px; }
+
+/* Monster of the Day */
+.motd-card {
+  display: flex; align-items: center; gap: 24px;
+  background: var(--panel); border: 2px solid var(--edge);
+  box-shadow: var(--px-shadow), var(--bevel);
+  padding: 20px 24px; max-width: 640px;
+}
+.motd-card[data-r="common"]    { box-shadow: var(--px-shadow), 0 0 12px rgba(149, 165, 166, 0.22), var(--bevel); }
+.motd-card[data-r="rare"]      { border-color: #1d4e6e; box-shadow: var(--px-shadow), 0 0 14px rgba(52, 152, 219, 0.35), var(--bevel); }
+.motd-card[data-r="epic"]      { border-color: #5e3370; box-shadow: var(--px-shadow), 0 0 14px rgba(155, 89, 182, 0.40), var(--bevel); }
+.motd-card[data-r="legendary"] { border-color: #8a6d1c; box-shadow: var(--px-shadow), 0 0 14px rgba(241, 196, 15, 0.40), var(--bevel); }
+.motd-card[data-r="mythic"]    { border-color: #8f1440; box-shadow: var(--px-shadow), 0 0 16px rgba(233, 30, 99, 0.45), var(--bevel); }
+.motd-sprite { width: 150px; height: 150px; object-fit: contain; flex: 0 0 auto; image-rendering: pixelated; }
+.motd-name { font-family: var(--font-ui); font-weight: 700; font-size: 1.45rem; line-height: 1.25; }
+.motd-line { color: var(--muted); font-size: 1.02rem; margin-top: 10px; }
+
+/* Play-safe card */
+.safety-card {
+  background: var(--panel); border: 2px solid var(--edge);
+  box-shadow: var(--px-shadow), var(--bevel);
+  padding: 20px 22px; max-width: 760px;
+}
+.safety-card p { color: var(--muted); font-size: 1rem; }
+.safety-card strong { color: var(--text); }
+
+@media (max-width: 860px) {
+  .boards-duo { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .hero-sprites { gap: 6px; }
+  .hero-sprites img { height: 42px !important; }
+  .hero-sprites img:nth-child(4) { height: 56px !important; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  section { padding: 32px 0 4px; }
+  .arena-band { padding: 20px 14px; }
+  .brand { font-size: 0.85rem; }
+  nav.main { gap: 12px; }
+  .hero-inner h1 { font-size: 1.05rem; }
+  section h2 { font-size: 0.82rem; }
+  .motd-card { flex-direction: column; text-align: center; gap: 12px; padding: 18px 16px; }
+  .champion-card { gap: 14px; padding: 16px; }
+  .champion-card .champ-crown { width: 42px; height: 42px; }
+}

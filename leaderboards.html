@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leaderboards — Tame Master</title>
+<meta name="description" content="Live Tame Master leaderboards: the global Arena ladder, richest tamers, prestige leaders, and the strongest clans.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tame Master">
+<meta property="og:title" content="Tame Master — a monster-taming game inside Discord">
+<meta property="og:description" content="Hunt and tame 200 original monsters, print coins on your plot, climb the global Arena ladder, trade on the marketplace, and run a clan — all inside Discord.">
+<meta property="og:image" content="https://syntaxsz1.github.io/tame-master-site/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tame Master — a monster-taming game inside Discord">
+<meta name="twitter:description" content="Hunt and tame 200 original monsters, print coins on your plot, climb the global Arena ladder, trade on the marketplace, and run a clan — all inside Discord.">
+<meta name="twitter:image" content="https://syntaxsz1.github.io/tame-master-site/assets/og.jpg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/avatar.jpg" alt="Tame Master avatar">
+      Tame Master <span class="check" title="Verified Discord app">&#10003;</span>
+    </a>
+    <nav class="main">
+      <a href="index.html">Home</a>
+      <a href="leaderboards.html" class="active">Leaderboards</a>
+      <a href="index.html#commands">Commands</a>
+      <a href="index.html#premium">Premium</a>
+      <a class="btn btn-blue btn-small" href="https://discord.com/oauth2/authorize?client_id=1562046640691609631&amp;permissions=8&amp;scope=bot%20applications.commands">Add to Discord</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2><img class="hico" src="assets/icons/trophy.png" alt="">Leaderboards</h2>
+    <p class="sub">The same boards the bot posts live in the <a href="https://discord.gg/Mu6UUaxKph">support server</a>. All boards are global — every server plays on one ladder. This page shows the latest snapshot; the boards update hourly.</p>
+
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-board="arena"><img src="assets/icons/trophy.png" alt="">Arena Ladder</button>
+      <button class="tab" data-board="coins"><img src="assets/icons/coin.png" alt="">Coins</button>
+      <button class="tab" data-board="prestige"><img src="assets/icons/crown.png" alt="">Prestige</button>
+      <button class="tab" data-board="clan_power"><img src="assets/icons/shield.png" alt="">Clan Power</button>
+      <button class="tab" data-board="clan_week"><img src="assets/icons/clanpoints.png" alt="">Clan Points (weekly)</button>
+    </div>
+
+    <div id="board-area">
+      <p class="board-note">Loading boards…</p>
+    </div>
+    <p class="board-note" id="updated-line"></p>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="links">
+      <a href="https://github.com/syntaxsz1/tame-master-policies/blob/main/PRIVACY.md">Privacy Policy</a>
+      <a href="https://github.com/syntaxsz1/tame-master-policies/blob/main/TERMS.md">Terms of Service</a>
+      <a href="index.html">Home</a>
+      <a href="https://www.youtube.com/@TameMasterGame">YouTube</a>
+      <a href="https://discord.gg/Mu6UUaxKph">Support Server</a>
+    </div>
+    <p class="fine">Tame Master is a Discord bot game. All monsters are original designs. Not affiliated with Discord Inc.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var TITLES = {
+    arena: "Arena Ladder",
+    coins: "Coins — richest tamers",
+    prestige: "Prestige leaders",
+    clan_power: "Clan Power — strongest clans",
+    clan_week: "Clan Points — this week"
+  };
+  var area = document.getElementById("board-area");
+  var updatedLine = document.getElementById("updated-line");
+  var data = null;
+  var current = "arena";
+
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function render(key) {
+    current = key;
+    var tabs = document.querySelectorAll(".tab");
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].classList.toggle("active", tabs[i].getAttribute("data-board") === key);
+    }
+    if (!data) return;
+    var rows = (data.boards && data.boards[key]) || [];
+    var note = (data.notes && data.notes[key]) || "";
+    if (!rows.length) {
+      area.innerHTML = '<div class="empty-box"><strong>' + esc(TITLES[key]) +
+        '</strong><br>' + esc(note || "No entries yet.") + '</div>';
+      return;
+    }
+    var html = '<div class="board-wrap"><table class="board"><thead><tr><th>#</th><th>Name</th><th>Details</th></tr></thead><tbody>';
+    for (var r = 0; r < rows.length; r++) {
+      var rk = parseInt(rows[r].rank, 10);
+      var rankCell = (rk >= 1 && rk <= 3)
+        ? '<span class="chip chip-' + rk + '">' + esc(rows[r].rank) + '</span>'
+        : esc(rows[r].rank);
+      html += '<tr><td class="rank">' + rankCell + '</td><td>' +
+        esc(rows[r].name) + '</td><td class="detail">' +
+        esc(rows[r].detail) + '</td></tr>';
+    }
+    html += '</tbody></table></div>';
+    if (note) html += '<p class="board-note">' + esc(note) + '</p>';
+    area.innerHTML = html;
+  }
+
+  var tabBtns = document.querySelectorAll(".tab");
+  for (var i = 0; i < tabBtns.length; i++) {
+    tabBtns[i].addEventListener("click", function () {
+      render(this.getAttribute("data-board"));
+    });
+  }
+
+  fetch("./data.json", { cache: "no-store" })
+    .then(function (resp) {
+      if (!resp.ok) throw new Error("HTTP " + resp.status);
+      return resp.json();
+    })
+    .then(function (json) {
+      data = json;
+      if (json.updated_at) {
+        var d = new Date(json.updated_at);
+        updatedLine.textContent = "Last updated: " + d.toLocaleString() +
+          " · Boards refresh hourly — see them live in the support server.";
+      }
+      render(current);
+    })
+    .catch(function () {
+      area.innerHTML = '<div class="empty-box">The boards could not be loaded ' +
+        'right now. They are always live in the #leaderboards channel of the ' +
+        '<a href="https://discord.gg/Mu6UUaxKph">support server</a>.</div>';
+    });
+})();
+</script>
+
+</body>
+</html>

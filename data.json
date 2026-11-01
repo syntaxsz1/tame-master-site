@@ -1,0 +1,57 @@
+{
+ "updated_at": "2026-11-01T17:00:15Z",
+ "boards": {
+  "arena": [],
+  "coins": [
+   {
+    "rank": 1,
+    "name": "syntaxsz [Team Syntaxs]",
+    "detail": "23,266,584 coins \u00b7 1W/0L"
+   },
+   {
+    "rank": 2,
+    "name": "QYN [Team Syntaxs]",
+    "detail": "11,810,480 coins \u00b7 0W/0L"
+   },
+   {
+    "rank": 3,
+    "name": "\u1bd3 \u1863\ud802\udf69 \u026a\ud835\udc61\u1dbb_\u2113\ud835\udc62\u0274\u03b1\ud80c\udf62\u05b4\u0ecb\ud83d\udc9c\u0f80\u0f72",
+    "detail": "1,652,296 coins \u00b7 0W/1L"
+   },
+   {
+    "rank": 4,
+    "name": "Wayne",
+    "detail": "2,424 coins \u00b7 0W/0L"
+   },
+   {
+    "rank": 5,
+    "name": "giaansz_",
+    "detail": "797 coins \u00b7 0W/0L"
+   },
+   {
+    "rank": 6,
+    "name": "_izukiw",
+    "detail": "700 coins \u00b7 0W/0L"
+   },
+   {
+    "rank": 7,
+    "name": "\u20df\u20df\u20df\u20df\u20df\u20df\u20df\u20df\u20df\u20df",
+    "detail": "610 coins \u00b7 0W/0L"
+   },
+   {
+    "rank": 8,
+    "name": "kd",
+    "detail": "590 coins \u00b7 0W/0L"
+   }
+  ],
+  "prestige": [],
+  "clan_power": [],
+  "clan_week": []
+ },
+ "notes": {
+  "arena": "No ranked tamers yet \u2014 be the first! Play 5 placement matches to join the ladder.",
+  "prestige": "Nobody has prestiged yet. Reach 1B coins and use /prestige to be the first!",
+  "clan_power": "No clan has a ranked Arena player yet. Finish Arena placements to put your clan on this board!",
+  "clan_week": "No Clan Points earned yet this week. Win Arena matches or a Clan War to put your clan on the board!"
+ }
+}

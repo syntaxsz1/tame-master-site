@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tame Master — a monster-taming game inside Discord</title>
+<meta name="description" content="Tame Master is a verified Discord bot: hunt and tame 200 original monsters, print coins on your plot, climb the global Arena ladder, trade on the marketplace, and run a clan.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tame Master">
+<meta property="og:title" content="Tame Master — a monster-taming game inside Discord">
+<meta property="og:description" content="Hunt and tame 200 original monsters, print coins on your plot, climb the global Arena ladder, trade on the marketplace, and run a clan — all inside Discord.">
+<meta property="og:image" content="https://syntaxsz1.github.io/tame-master-site/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tame Master — a monster-taming game inside Discord">
+<meta name="twitter:description" content="Hunt and tame 200 original monsters, print coins on your plot, climb the global Arena ladder, trade on the marketplace, and run a clan — all inside Discord.">
+<meta name="twitter:image" content="https://syntaxsz1.github.io/tame-master-site/assets/og.jpg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/avatar.jpg" alt="Tame Master avatar">
+      Tame Master <span class="check" title="Verified Discord app">&#10003;</span>
+    </a>
+    <nav class="main">
+      <a href="index.html" class="active">Home</a>
+      <a href="leaderboards.html">Leaderboards</a>
+      <a href="index.html#commands">Commands</a>
+      <a href="index.html#premium">Premium</a>
+      <a class="btn btn-blue btn-small" href="https://discord.com/oauth2/authorize?client_id=1562046640691609631&amp;permissions=8&amp;scope=bot%20applications.commands">Add to Discord</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner wrap">
+    <h1>TAME MASTER <span class="check" title="Verified Discord app">&#10003;</span></h1>
+    <p class="tagline">A monster-taming game that lives inside Discord.</p>
+    <div class="hero-buttons">
+      <a class="btn btn-blue" href="https://discord.com/oauth2/authorize?client_id=1562046640691609631&amp;permissions=8&amp;scope=bot%20applications.commands">Add to Discord</a>
+      <a class="btn btn-ghost" href="https://discord.gg/Mu6UUaxKph">Join the Server</a>
+    </div>
+    <div class="hero-sprites" aria-hidden="true">
+      <img src="assets/sprites/chirplet.png" alt="" style="height:62px">
+      <img src="assets/sprites/puffling.png" alt="" style="height:70px">
+      <img src="assets/sprites/glimmerfin.png" alt="" style="height:76px">
+      <img src="assets/sprites/embercub.png" alt="" style="height:100px">
+      <img src="assets/sprites/bouncekit.png" alt="" style="height:76px">
+      <img src="assets/sprites/aurorafawn.png" alt="" style="height:84px">
+      <img src="assets/sprites/thundermane.png" alt="" style="height:90px">
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+    <div class="stats">
+      <div class="stat"><img class="sico" src="assets/icons/paw.png" alt="Paw print icon"><div class="num">200</div><div class="lbl">Monsters to tame</div></div>
+      <div class="stat"><img class="sico" src="assets/icons/gem.png" alt="Rarity gem icon"><div class="num">5</div><div class="lbl">Rarities</div></div>
+      <div class="stat"><img class="sico" src="assets/icons/book.png" alt="Command book icon"><div class="num">39</div><div class="lbl">Commands</div></div>
+      <div class="stat"><img class="sico" src="assets/icons/trophy.png" alt=""><div class="num">Global</div><div class="lbl">Arena ladder</div></div>
+    </div>
+</div>
+
+<main class="wrap">
+
+  <div class="trust-strip">
+    <span class="trust-item"><img src="assets/icons/shield.png" alt="">&#10003; Verified Discord app</span>
+    <span class="trust-item"><img src="assets/icons/team.png" alt="">Live in 6 servers</span>
+    <a class="trust-item" href="https://github.com/syntaxsz1/tame-master-policies/blob/main/PRIVACY.md"><img src="assets/icons/book.png" alt="">Privacy Policy</a>
+    <a class="trust-item" href="https://github.com/syntaxsz1/tame-master-policies/blob/main/TERMS.md"><img src="assets/icons/gear.png" alt="">Terms of Service</a>
+  </div>
+
+  <section id="arena" style="padding-top: 0;">
+    <div class="arena-band">
+      <h2>One ladder. Every server.</h2>
+      <p class="sub">The Arena is one ranked ladder shared by every server the bot is in. Queue up, fight other tamers' teams, climb, and take the split payout.</p>
+      <div class="arena-points">
+        <div class="arena-point">
+          <h3>5 placement matches</h3>
+          <p>Play 5 placement matches to enter the ladder and earn your first rank.</p>
+        </div>
+        <div class="arena-point">
+          <h3>LP + hidden MMR</h3>
+          <p>Wins earn LP to climb tiers and divisions. A hidden MMR rating keeps matchmaking fair and drags your LP toward your true rank.</p>
+          <p class="kid-note">You earn points for wins. The game matches you with players at your level.</p>
+        </div>
+        <div class="arena-point">
+          <h3>Splits pay out</h3>
+          <p>Splits run for 3 months. When a split ends, ranked players are paid coins for their tier — up to 250,000 coins for Mythic.</p>
+          <p class="kid-note">Every 3 months the ladder restarts and top players get paid.</p>
+        </div>
+      </div>
+      <p class="split-countdown" id="split-countdown">Splits end every 3 months — Mythic pays 250,000 coins</p>
+      <div class="ranks" aria-label="Arena ranks from Hatchling to Mythic">
+        <div class="rank-tier"><img src="assets/ranks/rank_hatchling.png" alt="Hatchling rank badge"><div class="tname">Hatchling</div></div>
+        <div class="rank-tier"><img src="assets/ranks/rank_cub.png" alt="Cub rank badge"><div class="tname">Cub</div></div>
+        <div class="rank-tier"><img src="assets/ranks/rank_tracker.png" alt="Tracker rank badge"><div class="tname">Tracker</div></div>
+        <div class="rank-tier"><img src="assets/ranks/rank_hunter.png" alt="Hunter rank badge"><div class="tname">Hunter</div></div>
+        <div class="rank-tier"><img src="assets/ranks/rank_ranger.png" alt="Ranger rank badge"><div class="tname">Ranger</div></div>
+        <div class="rank-tier"><img src="assets/ranks/rank_warden.png" alt="Warden rank badge"><div class="tname">Warden</div></div>
+        <div class="rank-tier"><img src="assets/ranks/rank_alpha.png" alt="Alpha rank badge"><div class="tname">Alpha</div></div>
+        <div class="rank-tier"><img src="assets/ranks/rank_master.png" alt="Master Tamer rank badge"><div class="tname">Master Tamer</div></div>
+        <div class="rank-tier"><img src="assets/ranks/rank_grand.png" alt="Grand Tamer rank badge"><div class="tname">Grand Tamer</div></div>
+        <div class="rank-tier top"><img src="assets/ranks/rank_mythic.png" alt="Mythic rank badge"><div class="tname">Mythic</div></div>
+      </div>
+      <a class="btn btn-blue" href="leaderboards.html">See the ladder</a>
+    </div>
+  </section>
+
+  <section id="home-boards" hidden>
+    <div id="champion-slot"></div>
+    <div class="boards-duo">
+      <div class="board-col">
+        <h2><img class="hico" src="assets/icons/coin.png" alt="">Richest tamers right now</h2>
+        <p class="sub">The top of the global Coins board, straight from the live leaderboards.</p>
+        <div id="top-coins-slot"></div>
+      </div>
+      <div class="board-col">
+        <h2><img class="hico" src="assets/icons/trophy.png" alt="">Arena ladder — Top 5</h2>
+        <p class="sub">The top of the global Arena ladder, straight from the live leaderboards.</p>
+        <div id="top-arena-slot"></div>
+      </div>
+    </div>
+    <a class="btn btn-ghost" href="leaderboards.html">Full leaderboards</a>
+  </section>
+
+  <section id="features">
+    <h2><img class="hico" src="assets/icons/tame.png" alt="Heart and paw taming icon">How it plays</h2>
+    <p class="sub">Start with <strong>/start</strong>, hunt with <strong>/hunt</strong>, catch with <strong>/tame</strong>. Everything runs from the <strong>/menu</strong> button hub — tapping works as well as typing.</p>
+    <div class="grid">
+      <div class="card">
+        <h3><img class="card-ico" src="assets/icons/float.png" alt="">Float Grades</h3>
+        <p>Every catch rolls a float from 0.0000000000 to 1.0. Low-float copies are graded Perfect or Pristine and are worth far more when sold or traded.</p>
+      </div>
+      <div class="card">
+        <h3><img class="card-ico" src="assets/icons/coin.png" alt="">Coin Plots</h3>
+        <p>Place monsters on your plot and they print coins for you, even while you are away. A plot stores up to 8 hours of coins before it fills.</p>
+      </div>
+      <div class="card">
+        <h3><img class="card-ico" src="assets/icons/arena.png" alt="">Global Arena</h3>
+        <p>A ranked 3v3 ladder shared by every server. Monsters have real stats, one of 12 abilities, and an element — Flame beats Leaf, Leaf beats Tide, and so on.</p>
+      </div>
+      <div class="card">
+        <h3><img class="card-ico" src="assets/icons/shop.png" alt="">Marketplace</h3>
+        <p>Buy and sell monsters with other players at fixed prices. Prices are listed cheapest first, and every sale is instant.</p>
+      </div>
+      <div class="card">
+        <h3><img class="card-ico" src="assets/icons/clanwar.png" alt="">Clans &amp; Wars</h3>
+        <p>Create or join a clan, level it up, and fight 5v5 clan wars for a coin pot. Clan members earn bonus plot income, and the top clan each week pays every member 5,000 coins.</p>
+      </div>
+      <div class="card">
+        <h3><img class="card-ico tall" src="assets/icons/card_ace.png" alt="">Casino</h3>
+        <p>Slots, blackjack, lottery, and coinflip — all played with the coins your monsters earn.</p>
+      </div>
+      <div class="card">
+        <h3><img class="card-ico" src="assets/icons/shiny.png" alt="">Shinies</h3>
+        <p>1 in 64 catches is a shiny. Shiny monsters sell for 5x the normal price.</p>
+      </div>
+      <div class="card">
+        <h3><img class="card-ico" src="assets/icons/pumpkin.png" alt="">Seasonal Events</h3>
+        <p>Limited-time monsters spawn during events. The Halloween event is live until November 6, 2026 — its 5 monsters can never be caught again after it ends.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="showcase">
+    <h2><img class="hico" src="assets/sprites/embercub.png" alt="Embercub monster sprite">A few of the 200</h2>
+    <p class="sub">Every monster is an original design. Rarity runs Common, Rare, Epic, Legendary, Mythic.</p>
+    <div class="showcase">
+      <div class="mon" data-r="common"><img src="assets/sprites/bouncekit.png" alt="Bouncekit sprite"><div class="mname">Bouncekit</div><span class="rarity r-common">Common</span></div>
+      <div class="mon" data-r="common"><img src="assets/sprites/puffling.png" alt="Puffling sprite"><div class="mname">Puffling</div><span class="rarity r-common">Common</span></div>
+      <div class="mon" data-r="common"><img src="assets/sprites/chirplet.png" alt="Chirplet sprite"><div class="mname">Chirplet</div><span class="rarity r-common">Common</span></div>
+      <div class="mon" data-r="rare"><img src="assets/sprites/embercub.png" alt="Embercub sprite"><div class="mname">Embercub</div><span class="rarity r-rare">Rare</span></div>
+      <div class="mon" data-r="rare"><img src="assets/sprites/glimmerfin.png" alt="Glimmerfin sprite"><div class="mname">Glimmerfin</div><span class="rarity r-rare">Rare</span></div>
+      <div class="mon" data-r="rare"><img src="assets/sprites/acornkit.png" alt="Acornkit sprite"><div class="mname">Acornkit</div><span class="rarity r-rare">Rare</span></div>
+      <div class="mon" data-r="epic"><img src="assets/sprites/aurorafawn.png" alt="Aurorafawn sprite"><div class="mname">Aurorafawn</div><span class="rarity r-epic">Epic</span></div>
+      <div class="mon" data-r="epic"><img src="assets/sprites/kraklet.png" alt="Kraklet sprite"><div class="mname">Kraklet</div><span class="rarity r-epic">Epic</span></div>
+      <div class="mon" data-r="legendary"><img src="assets/sprites/celestipard.png" alt="Celestipard sprite"><div class="mname">Celestipard</div><span class="rarity r-legendary">Legendary</span></div>
+      <div class="mon" data-r="legendary"><img src="assets/sprites/thundermane.png" alt="Thundermane sprite"><div class="mname">Thundermane</div><span class="rarity r-legendary">Legendary</span></div>
+      <div class="mon" data-r="mythic"><img src="assets/sprites/prismordial.png" alt="Prismordial sprite"><div class="mname">Prismordial</div><span class="rarity r-mythic">Mythic</span></div>
+      <div class="mon" data-r="mythic"><img src="assets/sprites/eternalkit.png" alt="Eternalkit sprite"><div class="mname">Eternalkit</div><span class="rarity r-mythic">Mythic</span></div>
+    </div>
+  </section>
+
+  <section id="motd">
+    <h2><img class="hico" src="assets/icons/paw.png" alt="">Monster of the Day</h2>
+    <p class="sub">A new monster says hello every day. Come back tomorrow to meet another one!</p>
+    <div class="motd-card" id="motd-card" data-r="rare">
+      <img class="motd-sprite" id="motd-sprite" src="assets/sprites/embercub.png" alt="Embercub sprite">
+      <div class="motd-info">
+        <div class="motd-name" id="motd-name">Embercub</div>
+        <span class="rarity r-rare" id="motd-rarity">Rare</span>
+        <p class="motd-line" id="motd-line">A brave little fire cub who never gives up.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="commands">
+    <h2><img class="hico" src="assets/icons/book.png" alt="Command book icon">Commands</h2>
+    <p class="sub">All 39 commands, grouped the same way as the in-game <strong>/help</strong>. New here? Run <strong>/start</strong> for a free starter monster and a short tutorial.</p>
+    <div class="cmd-grid">
+      <div class="cmd-group">
+        <h3><img class="gico" src="assets/icons/rocket.png" alt="Rocket icon">Getting started</h3>
+        <div class="cmd"><code>/start</code><span>Get a free starter monster + quick tutorial</span></div>
+        <div class="cmd"><code>/menu</code><span>Button hub — tap instead of typing</span></div>
+        <div class="cmd"><code>/help</code><span>Every command, organized and explained</span></div>
+        <div class="cmd"><code>/daily</code><span>Free coins every day — streaks pay more</span></div>
+        <div class="cmd"><code>/coins</code><span>Your balance and battle record</span></div>
+        <div class="cmd"><code>/profile</code><span>Your coins, monsters, shinies, battles</span></div>
+        <div class="cmd"><code>/titles</code><span>Titles you have earned — equip one</span></div>
+      </div>
+      <div class="cmd-group">
+        <h3><img class="gico" src="assets/icons/hunt.png" alt="Binoculars hunt icon">Taming</h3>
+        <div class="cmd"><code>/hunt</code><span>Make a wild monster appear</span></div>
+        <div class="cmd"><code>/tame</code><span>Catch the wild monster</span></div>
+        <div class="cmd"><code>/collection</code><span>Your tamed monsters: place, feed, trade, release</span></div>
+        <div class="cmd"><code>/nickname</code><span>Give one of your monsters a name</span></div>
+        <div class="cmd"><code>/dex</code><span>All 200 monsters</span></div>
+      </div>
+      <div class="cmd-group">
+        <h3><img class="gico" src="assets/icons/house.png" alt="House plot icon">Plot</h3>
+        <div class="cmd"><code>/collect</code><span>Claim your coins (fills up over 8 hours)</span></div>
+        <div class="cmd"><code>/plot</code><span>View your plot and income</span></div>
+        <div class="cmd"><code>/place</code><span>Put a monster on your plot to earn coins</span></div>
+        <div class="cmd"><code>/upgrade</code><span>More slots, faster income</span></div>
+      </div>
+      <div class="cmd-group">
+        <h3><img class="gico" src="assets/icons/battle.png" alt="Crossed axes battle icon">Combat</h3>
+        <div class="cmd"><code>/arena</code><span>Ranked 3v3 team battles on the global ladder</span></div>
+        <div class="cmd"><code>/battle</code><span>Duel another tamer</span></div>
+      </div>
+      <div class="cmd-group">
+        <h3><img class="gico" src="assets/icons/dice.png" alt="Dice games icon">Games</h3>
+        <div class="cmd"><code>/trivia</code><span>Quiz — faster answers earn more coins</span></div>
+        <div class="cmd"><code>/casino</code><span>Slots, blackjack, lottery</span></div>
+        <div class="cmd"><code>/coinflip</code><span>Bet on heads or tails</span></div>
+      </div>
+      <div class="cmd-group">
+        <h3><img class="gico" src="assets/icons/moneybag.png" alt="Money bag economy icon">Economy</h3>
+        <div class="cmd"><code>/shop</code><span>Bait, charms, timed buffs, lures and more</span></div>
+        <div class="cmd"><code>/sell</code><span>Sell unplaced monsters for coins</span></div>
+        <div class="cmd"><code>/market</code><span>Buy &amp; sell monsters with other tamers</span></div>
+        <div class="cmd"><code>/prestige</code><span>At 1B coins: reset coins to 0 for +10% plot income per level (monsters stay)</span></div>
+        <div class="cmd"><code>/gift</code><span>Send coins to a friend</span></div>
+      </div>
+      <div class="cmd-group">
+        <h3><img class="gico" src="assets/icons/trophy.png" alt="Trophy leaderboard icon">Boards</h3>
+        <div class="cmd"><code>/leaderboard</code><span>Richest tamers (server or global)</span></div>
+        <div class="cmd"><code>/topplots</code><span>Richest plots (server or global)</span></div>
+        <div class="cmd"><code>/season</code><span>This month's top earners</span></div>
+        <div class="cmd"><code>/stats</code><span>Tame Master by the numbers</span></div>
+        <p style="margin-top:10px;"><a href="leaderboards.html">See the live leaderboards &rarr;</a></p>
+      </div>
+      <div class="cmd-group">
+        <h3><img class="gico" src="assets/icons/team.png" alt="Team shields social icon">Social</h3>
+        <div class="cmd"><code>/trade</code><span>Offer a monster to another tamer</span></div>
+        <div class="cmd"><code>/visit</code><span>Peek at another tamer's plot</span></div>
+        <div class="cmd"><code>/clan</code><span>Create or join a clan</span></div>
+        <div class="cmd"><code>/vote</code><span>Vote for 500 coins + 1 Lure (every 12h)</span></div>
+        <div class="cmd"><code>/invite</code><span>Bot invite link + server count</span></div>
+      </div>
+      <div class="cmd-group">
+        <h3><img class="gico" src="assets/icons/gear.png" alt="Gear tools icon">Server &amp; owner tools</h3>
+        <div class="cmd"><code>/setup</code><span>Admin — set the wild spawn channel and spawn rate</span></div>
+        <div class="cmd"><code>/panel</code><span>Admin — post the persistent category menu</span></div>
+        <div class="cmd"><code>/dev</code><span>Bot owner only — dev menu</span></div>
+        <div class="cmd"><code>/premium</code><span>Premium perks and your status — see below</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="premium">
+    <h2><img class="hico" src="assets/icons/gem.png" alt="">Premium</h2>
+    <p class="sub">Premium is handled inside Discord — run <strong>/premium</strong> in any server with the bot to see your status and subscribe.</p>
+    <div class="premium-box">
+      <ul>
+        <li><img class="pico" src="assets/icons/backpack.png" alt="Backpack storage icon"><strong>Room</strong> — +2 plot slots · coin storage &times;2 with auto-collect · 30 market listings · 6 Arena team presets</li>
+        <li><img class="pico" src="assets/icons/scope.png" alt="Float Scope icon"><strong>Chase</strong> — shiny odds 1/48 · a Rare-or-better hunt every day · 3 free Float Scopes a month · events start 1 day early</li>
+        <li><img class="pico" src="assets/icons/crown.png" alt="Crown style icon"><strong>Style</strong> — Embercub blackjack deck · premium profile card · gold name on the boards · a monthly monster skin, yours to keep</li>
+        <li><img class="pico" src="assets/icons/chart.png" alt="Price chart icon"><strong>Smarts</strong> — full market price history · trade history</li>
+        <li><img class="pico" src="assets/icons/gift.png" alt="Gift bonus icon"><strong>Plus</strong> — +500 coins with /daily · all clan icons + clan colors · Founding Patron badge for the first 100 members</li>
+      </ul>
+      <p style="margin-top:14px; color: var(--muted);">This month's skin: <strong style="color: var(--text);">Golden Embercub</strong> — Premium members receive it automatically and keep it for good.</p>
+    </div>
+  </section>
+
+  <section id="safety">
+    <h2><img class="hico" src="assets/icons/shield.png" alt="">Safe &amp; fair for everyone</h2>
+    <div class="safety-card">
+      <p>Tame Master is <strong>free to play</strong>. Coins are just game points — they are not real money. You never need to buy anything to win. Premium is only fun extras, and a grown-up should handle any purchase.</p>
+    </div>
+  </section>
+
+  <section id="links">
+    <h2><img class="hico" src="assets/icons/ballot.png" alt="Ballot box vote icon">Vote &amp; links</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Vote on top.gg</h3>
+        <p>Voting in Discord with /vote pays 500 coins + 1 Lure, every 12 hours.</p>
+        <p style="margin-top:10px;"><a href="https://top.gg/bot/1562046640691609631/vote">Vote for Tame Master &rarr;</a></p>
+      </div>
+      <div class="card">
+        <h3>YouTube</h3>
+        <p>Shorts and updates on the official channel.</p>
+        <p style="margin-top:10px;"><a href="https://www.youtube.com/@TameMasterGame">@TameMasterGame &rarr;</a></p>
+      </div>
+      <div class="card">
+        <h3>Support server</h3>
+        <p>Help, suggestions, bug reports, and the live leaderboards channel.</p>
+        <p style="margin-top:10px;"><a href="https://discord.gg/Mu6UUaxKph">Join the server &rarr;</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="links">
+      <a href="https://github.com/syntaxsz1/tame-master-policies/blob/main/PRIVACY.md">Privacy Policy</a>
+      <a href="https://github.com/syntaxsz1/tame-master-policies/blob/main/TERMS.md">Terms of Service</a>
+      <a href="leaderboards.html">Leaderboards</a>
+      <a href="https://www.youtube.com/@TameMasterGame">YouTube</a>
+      <a href="https://discord.gg/Mu6UUaxKph">Support Server</a>
+    </div>
+    <p class="fine">Tame Master is a Discord bot game. All monsters are original designs. Not affiliated with Discord Inc.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var section = document.getElementById("home-boards");
+  var coinsSlot = document.getElementById("top-coins-slot");
+  var arenaSlot = document.getElementById("top-arena-slot");
+  var champSlot = document.getElementById("champion-slot");
+  if (!section || !coinsSlot || !arenaSlot) return;
+
+  var ARENA_EMPTY_TEXT = "No ranked tamers yet — be the first! Play 5 placement matches to enter the ladder.";
+  // Longest names first so "Master Tamer" wins over "Master"-like partials.
+  var TIERS = [
+    ["Grand Tamer", "rank_grand"], ["Master Tamer", "rank_master"],
+    ["Hatchling", "rank_hatchling"], ["Tracker", "rank_tracker"],
+    ["Hunter", "rank_hunter"], ["Ranger", "rank_ranger"],
+    ["Warden", "rank_warden"], ["Alpha", "rank_alpha"],
+    ["Mythic", "rank_mythic"], ["Cub", "rank_cub"]
+  ];
+
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function rankCell(row) {
+    var rk = parseInt(row.rank, 10);
+    return (rk >= 1 && rk <= 3)
+      ? '<span class="chip chip-' + rk + '">' + esc(row.rank) + '</span>'
+      : esc(row.rank);
+  }
+
+  function tableHtml(rows, withBadges) {
+    var html = '<div class="board-wrap teaser-table"><table class="board">' +
+      '<thead><tr><th>#</th><th>Name</th><th>Details</th></tr></thead><tbody>';
+    for (var i = 0; i < rows.length; i++) {
+      var badge = "";
+      if (withBadges) {
+        var hay = String(rows[i].name || "") + " " + String(rows[i].detail || "");
+        for (var t = 0; t < TIERS.length; t++) {
+          if (hay.indexOf(TIERS[t][0]) !== -1) {
+            badge = '<img class="rank-badge-inline" src="assets/ranks/' +
+              TIERS[t][1] + '.png" alt="' + TIERS[t][0] + ' rank badge">';
+            break;
+          }
+        }
+      }
+      html += '<tr><td class="rank">' + rankCell(rows[i]) + '</td><td>' +
+        badge + esc(rows[i].name) + '</td><td class="detail">' +
+        esc(rows[i].detail) + '</td></tr>';
+    }
+    return html + '</tbody></table></div>';
+  }
+
+  function championHtml(row) {
+    var m = String(row.detail || "").match(/^([\d,]+)\s+coins\s*·\s*(\d+)W\/(\d+)L/);
+    var stats = m
+      ? '<span class="champ-stat">' + esc(m[1]) + ' coins</span>' +
+        '<span class="champ-stat">' + esc(m[2]) + 'W · ' + esc(m[3]) + 'L</span>'
+      : '<span class="champ-stat">' + esc(row.detail) + '</span>';
+    return '<div class="champion-card">' +
+      '<img class="champ-crown" src="assets/icons/crown.png" alt="Crown icon">' +
+      '<div class="champ-info"><div class="champ-label">Top Tamer</div>' +
+      '<div class="champ-name">' + esc(row.name) + '</div>' +
+      '<div class="champ-stats">' + stats + '</div></div></div>';
+  }
+
+  fetch("./data.json", { cache: "no-store" })
+    .then(function (resp) {
+      if (!resp.ok) throw new Error("HTTP " + resp.status);
+      return resp.json();
+    })
+    .then(function (json) {
+      var coins = (json.boards && json.boards.coins) || [];
+      var arena = (json.boards && json.boards.arena) || [];
+      if (!coins.length && !arena.length) return; // stay hidden when both boards are empty
+
+      if (coins.length) {
+        coinsSlot.innerHTML = tableHtml(coins.slice(0, 5), false);
+        if (champSlot) champSlot.innerHTML = championHtml(coins[0]);
+      } else {
+        coinsSlot.innerHTML = '<div class="empty-box">No coin leaders yet.</div>';
+      }
+
+      if (arena.length) {
+        arenaSlot.innerHTML = tableHtml(arena.slice(0, 5), true);
+      } else {
+        arenaSlot.innerHTML = '<div class="empty-box">' + ARENA_EMPTY_TEXT + '</div>';
+      }
+
+      section.hidden = false;
+    })
+    .catch(function () { /* boards area stays hidden if data cannot load */ });
+})();
+</script>
+
+<script>
+(function () {
+  /* Split countdown — mirrors combat.py _split_id(): 3-month calendar
+     splits (Jan-Mar, Apr-Jun, Jul-Sep, Oct-Dec) in America/Toronto.
+     The countdown targets midnight Toronto time on the next
+     Jan/Apr/Jul/Oct 1st. */
+  var el = document.getElementById("split-countdown");
+  if (el) {
+    function part(parts, type) {
+      for (var i = 0; i < parts.length; i++) if (parts[i].type === type) return parts[i].value;
+      return "";
+    }
+    function splitEndMs() {
+      var nowParts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Toronto", year: "numeric", month: "numeric"
+      }).formatToParts(new Date());
+      var y = parseInt(part(nowParts, "year"), 10);
+      var m = parseInt(part(nowParts, "month"), 10);
+      var em = Math.floor((m - 1) / 3) * 3 + 4; // next boundary month: 4, 7, 10, 13
+      var ey = y;
+      if (em > 12) { em = 1; ey = y + 1; }
+      // Probe Toronto's UTC offset on the boundary date (noon UTC is
+      // 07:00/08:00 in Toronto, same calendar day): offset = 12 - local hour.
+      var probe = new Date(Date.UTC(ey, em - 1, 1, 12, 0, 0));
+      var hParts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Toronto", hour12: false, hour: "numeric"
+      }).formatToParts(probe);
+      var lh = parseInt(part(hParts, "hour"), 10) % 24;
+      return Date.UTC(ey, em - 1, 1, 12 - lh, 0, 0);
+    }
+    function tick() {
+      var diff = splitEndMs() - Date.now();
+      if (diff < 0) diff = 0;
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var min = Math.floor((diff % 3600000) / 60000);
+      var when = d > 0 ? (d + "d " + h + "h") : (h + "h " + min + "m");
+      el.textContent = "⏳ Split ends in " + when + " — Mythic pays 250,000 coins";
+    }
+    tick();
+    setInterval(tick, 60000);
+  }
+
+  /* Monster of the Day — rotates by day-of-year over the sprite list. */
+  var MONSTERS = [
+    { name: "Embercub", rarity: "Rare", slug: "embercub", line: "A brave little fire cub who never gives up." },
+    { name: "Bouncekit", rarity: "Common", slug: "bouncekit", line: "A bouncy kitten who loves to hop, play, and nap in the sun." },
+    { name: "Puffling", rarity: "Common", slug: "puffling", line: "A soft, round puffball who is everyone's friend." },
+    { name: "Glimmerfin", rarity: "Rare", slug: "glimmerfin", line: "A sparkly fish who lights up the water when it swims." },
+    { name: "Aurorafawn", rarity: "Epic", slug: "aurorafawn", line: "A gentle deer whose coat shines with rainbow lights." },
+    { name: "Thundermane", rarity: "Legendary", slug: "thundermane", line: "A proud lion with a mane full of lightning." },
+    { name: "Celestipard", rarity: "Legendary", slug: "celestipard", line: "A speedy star cat who races across the night sky." }
+  ];
+  var card = document.getElementById("motd-card");
+  if (card) {
+    var now = new Date();
+    var doy = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
+    var mon = MONSTERS[doy % MONSTERS.length];
+    var sprite = document.getElementById("motd-sprite");
+    var nameEl = document.getElementById("motd-name");
+    var rarEl = document.getElementById("motd-rarity");
+    var lineEl = document.getElementById("motd-line");
+    if (sprite) { sprite.src = "assets/sprites/" + mon.slug + ".png"; sprite.alt = mon.name + " sprite"; }
+    if (nameEl) nameEl.textContent = mon.name;
+    if (rarEl) {
+      rarEl.textContent = mon.rarity;
+      rarEl.className = "rarity r-" + mon.rarity.toLowerCase();
+    }
+    if (lineEl) lineEl.textContent = mon.line;
+    card.setAttribute("data-r", mon.rarity.toLowerCase());
+  }
+})();
+</script>
+
+</body>
+</html>
