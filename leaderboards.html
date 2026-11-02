@@ -127,11 +127,31 @@
     });
   }
 
-  fetch("./data.json", { cache: "no-store" })
-    .then(function (resp) {
-      if (!resp.ok) throw new Error("HTTP " + resp.status);
-      return resp.json();
-    })
+  /* Boards load LIVE from the bot's own feed first (same schema as
+     data.json); if the feed is unreachable or returns junk, fall back
+     to the data.json snapshot shipped with the site. */
+  function loadBoards() {
+    return fetch("https://tame-master-bot.fly.dev/leaderboards.json")
+      .then(function (resp) {
+        if (!resp.ok) throw new Error("HTTP " + resp.status);
+        return resp.json();
+      })
+      .then(function (json) {
+        if (!json || typeof json !== "object" || !json.boards) {
+          throw new Error("bad feed data");
+        }
+        return json;
+      })
+      .catch(function () {
+        return fetch("./data.json", { cache: "no-store" })
+          .then(function (resp) {
+            if (!resp.ok) throw new Error("HTTP " + resp.status);
+            return resp.json();
+          });
+      });
+  }
+
+  loadBoards()
     .then(function (json) {
       data = json;
       if (json.updated_at) {
