@@ -113,6 +113,11 @@
     </div>
   </section>
 
+  <section id="tournament-champion" hidden>
+    <div id="tourney-champion-slot"></div>
+    <div id="hall-of-champions"></div>
+  </section>
+
   <section id="home-boards" hidden>
     <div id="champion-slot"></div>
     <div class="boards-duo">
@@ -388,6 +393,60 @@
     return html + '</tbody></table></div>';
   }
 
+  /* Tournament champion spotlight + Hall of Champions, fed by the
+     same live payload's `tournament` key. The prize text comes from
+     the tournament record itself. Species sprites render only when
+     the site already ships that species' sprite; otherwise the
+     winning team is text-only. */
+  var SITE_SPRITES = {
+    acornkit: 1, aurorafawn: 1, bouncekit: 1, celestipard: 1,
+    chirplet: 1, embercub: 1, eternalkit: 1, glimmerfin: 1,
+    kraklet: 1, prismordial: 1, puffling: 1, thundermane: 1
+  };
+
+  function teamHtml(team) {
+    if (!team || !team.length) return "";
+    var parts = [];
+    for (var i = 0; i < team.length; i++) {
+      var slug = String(team[i]).toLowerCase().replace(/[^a-z0-9]/g, "");
+      var img = SITE_SPRITES[slug]
+        ? '<img class="tourney-mon" src="assets/sprites/' + slug +
+          '.png" alt="">'
+        : "";
+      parts.push('<span class="tourney-mon-wrap">' + img +
+        esc(team[i]) + '</span>');
+    }
+    return '<div class="champ-stats"><span class="champ-stat">' +
+      'Winning team: ' + parts.join(' · ') + '</span></div>';
+  }
+
+  function tournamentChampionHtml(c) {
+    return '<div class="champion-card tourney-card">' +
+      '<img class="champ-crown" src="assets/icons/trophy.png" alt="Trophy icon">' +
+      '<div class="champ-info"><div class="champ-label">' +
+      'Tournament Champion</div>' +
+      '<div class="champ-name">' + esc(c.name) + '</div>' +
+      '<div class="champ-stats"><span class="champ-stat">' +
+      esc(c.prize) + ' Champion</span>' +
+      '<span class="champ-stat">' + esc(c.date) + '</span></div>' +
+      teamHtml(c.team) + '</div></div>';
+  }
+
+  function hallHtml(champions) {
+    if (!champions || champions.length < 2) return "";
+    var rows = "";
+    for (var i = 1; i < champions.length; i++) {
+      var c = champions[i];
+      rows += '<div class="hall-row"><span class="hall-name">' +
+        esc(c.name) + '</span><span class="hall-detail">' +
+        esc((c.team || []).join(' · ')) + '</span>' +
+        '<span class="hall-detail">' + esc(c.date) + ' · ' +
+        esc(c.prize) + '</span></div>';
+    }
+    return '<h2 class="hall-title">Hall of Champions</h2>' +
+      '<div class="hall-list">' + rows + '</div>';
+  }
+
   function championHtml(row) {
     var m = String(row.detail || "").match(/^([\d,]+)\s+coins\s*·\s*(\d+)W\/(\d+)L/);
     var stats = m
@@ -427,6 +486,19 @@
 
   loadBoards()
     .then(function (json) {
+      // Tournament spotlight renders independently of the boards.
+      var tourneySection = document.getElementById("tournament-champion");
+      var tourneySlot = document.getElementById("tourney-champion-slot");
+      var hallSlot = document.getElementById("hall-of-champions");
+      var tourney = json.tournament || {};
+      if (tourneySection && tourneySlot && tourney.current_champion) {
+        tourneySlot.innerHTML =
+          tournamentChampionHtml(tourney.current_champion);
+        if (hallSlot) hallSlot.innerHTML =
+          hallHtml(tourney.champions || []);
+        tourneySection.hidden = false;
+      }
+
       var coins = (json.boards && json.boards.coins) || [];
       var arena = (json.boards && json.boards.arena) || [];
       if (!coins.length && !arena.length) return; // stay hidden when both boards are empty

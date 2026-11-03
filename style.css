@@ -369,6 +369,24 @@ a.trust-item:hover { color: var(--text); }
 .champ-stat { color: var(--muted); font-weight: 600; }
 .rank-badge-inline { width: 24px; height: 24px; display: inline-block; vertical-align: -6px; margin-right: 8px; }
 
+/* Tournament champion spotlight + Hall of Champions */
+#tournament-champion { margin-bottom: 0; }
+.tourney-card { margin-bottom: 22px; }
+.tourney-mon { width: 28px; height: 28px; vertical-align: -8px; margin-right: 5px; image-rendering: pixelated; }
+.tourney-mon-wrap { white-space: nowrap; }
+.hall-title {
+  font-family: var(--font-px); font-size: 0.72rem; line-height: 1.6;
+  color: var(--gold); letter-spacing: 0.02em; margin: 4px 0 12px;
+}
+.hall-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px; }
+.hall-row {
+  display: flex; gap: 10px 22px; flex-wrap: wrap; align-items: baseline;
+  background: var(--panel); border: 2px solid var(--edge);
+  padding: 10px 14px;
+}
+.hall-name { font-family: var(--font-ui); font-weight: 700; }
+.hall-detail { color: var(--muted); font-weight: 600; font-size: 0.92rem; }
+
 /* Monster of the Day */
 .motd-card {
   display: flex; align-items: center; gap: 24px;
