@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Ember</title>
+<meta name="description" content="What the Ember Discord bot stores, what it never stores, and how to have a server's data deleted. Plain language, no surprises.">
+<link rel="icon" type="image/png" href="https://cdn.discordapp.com/avatars/1567584441579085914/d66f786f1f13b7375eef2b6a7c76ac96.png?size=512">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="ember.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="https://cdn.discordapp.com/avatars/1567584441579085914/d66f786f1f13b7375eef2b6a7c76ac96.png?size=512" alt="Ember, a small owl with a rust scarf holding a mug">
+      Ember
+    </a>
+    <nav class="main">
+      <a href="index.html">Home</a>
+      <a href="privacy.html" class="active">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a class="btn btn-ember btn-small" href="https://discord.com/oauth2/authorize?client_id=1567584441579085914&permissions=271969360&integration_type=0&scope=bot+applications.commands">Add Ember to your server</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="doc">
+    <div class="doc-panel">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: November 2026</p>
+
+      <p>Ember is a Discord bot. This page explains, in plain words, exactly what she stores to do her job, what she never stores, and how to get data deleted. Ember is made by the same developer as Tame Master.</p>
+      <p>Everything Ember stores is kept <strong>per server</strong>. Your stars, settings, and records in one server are never visible in another, and servers never share data with each other.</p>
+
+      <h2>What Ember stores about a server</h2>
+      <p>These are the choices the server's owners and admins make in <code>/setup</code> and the other owner tools:</p>
+      <ul>
+        <li><strong>Channel and role bindings</strong> — which channels Ember should use for welcomes, announcements, events, tickets, music, and her staff log, and which roles mark members, senior members, and staff.</li>
+        <li><strong>Feature switches</strong> — which of her features are on or off, including the optional “deep” log switches (edited messages, deleted messages, voice moves, nickname changes), which are off unless an owner turns them on.</li>
+        <li><strong>The owner's words</strong> — the editable texts Ember posts: the welcome message, rules, server guide, ticket panel wording, and similar templates.</li>
+        <li><strong>The custom rank ladder</strong> — rank names, star goals, and the role each rank grants, if the owners built one.</li>
+        <li><strong>Panels</strong> — the role and link button panels owners build with <code>/panel</code>: their titles, words, buttons, and where they are posted.</li>
+        <li><strong>Shop settings</strong> — the star prices and on/off switches the owners set for their server's star shop.</li>
+        <li><strong>Small bookkeeping markers</strong> — notes like “today's birthday post already went out,” so her scheduled posts never fire twice.</li>
+      </ul>
+
+      <h2>What Ember stores about a member</h2>
+      <p>Only inside that member's server, and only what her features need:</p>
+      <ul>
+        <li><strong>Your Discord user ID</strong> — the number Discord gives every account. Ember never sees your email address, real name, or password.</li>
+        <li><strong>Stars</strong> — how many stars you have earned in total, how many you have spent in the star shop, and a short history of each earning (amount and time) used for leaderboards and Star of the Week.</li>
+        <li><strong>Activity counts</strong> — total messages sent, total time spent in voice, and the times of your most recent star earnings, which her cooldowns and badges need.</li>
+        <li><strong>Your choices</strong> — the “spot” you picked, your profile card's background, and the shop items you own.</li>
+        <li><strong>Your birthday, only if you set one</strong> — the month and day you give <code>/setbirthday</code>, used for your birthday shout-out. Never a year.</li>
+        <li><strong>Badges and small counters</strong> — the badges you have earned and when, plus counters like songs queued, songs sung at karaoke, fire logs fed, bottles sent, and late-night visits. These power your profile card and badge checks.</li>
+      </ul>
+
+      <h2>What Ember stores while things are open</h2>
+      <ul>
+        <li><strong>Tickets</strong> — who opened the ticket, its status, and which staff member claimed it. When staff close a ticket, a transcript of the ticket channel is posted into that server's own staff channel, so the team keeps a record — that copy lives in your server, in Discord.</li>
+        <li><strong>Applications</strong> — the answers an applicant writes, and whether the application is pending, approved, or declined, so staff can review them.</li>
+        <li><strong>Polls</strong> — the question, the options, who created it, and each member's current vote (tapping another option moves your vote).</li>
+        <li><strong>Giveaways</strong> — the prize, who hosted it, who entered, and who won.</li>
+        <li><strong>Staff warnings</strong> — the member warned, the staff member who warned them, the reason the staff member wrote, and the time.</li>
+        <li><strong>Things members post through Ember</strong> — suggestions, looking-for-group posts, and scheduled event titles and times. These are posted publicly in your server anyway.</li>
+        <li><strong>Notes in bottles</strong> — the note's text and who it is for, kept so Ember can deliver it later that same evening.</li>
+        <li><strong>The server's shared fire</strong> — one warmth level per server. It belongs to the whole community, not to any member.</li>
+      </ul>
+      <p>Music is different: the song queue lives only in Ember's memory while music plays (the now-playing card shows who requested each track, like any music bot). Queues are <strong>not</strong> written to her database.</p>
+
+      <h2>What Ember does not store</h2>
+      <ul>
+        <li><strong>Message content is never saved to her database.</strong> Ember sees messages as Discord delivers them so features can react in the moment — counting a chat message toward stars, for example — and then lets them go.</li>
+        <li><strong>The one exception is the optional deep logging.</strong> If — and only if — a server's owners turn on edited/deleted message logging, the changed or deleted text is shown <strong>once</strong>, inside a message Ember posts to that server's own staff log channel. It is not kept in her database.</li>
+        <li>Ember does not record voice audio, does not build advertising profiles, and does not track anyone across servers or websites.</li>
+      </ul>
+
+      <h2>Totals with no names attached</h2>
+      <p>Ember keeps a running count of how often each of her commands is used, added up across every server she serves. These are totals only — the count is stored on its own, with no record of which member or which server ran the command. The developer uses them to see which features people actually enjoy.</p>
+
+      <h2>Sharing</h2>
+      <p>Ember's data is used only to run Ember's features in your server. It is <strong>never sold</strong>, never rented, and never shared with advertisers or data brokers. There are no ads and no third-party trackers in Ember.</p>
+
+      <h2>Where the data lives</h2>
+      <p>Everything above sits in one database on the developer's own hosting, accessible only to the developer. Ember reads from Discord and writes to Discord as her features run; apart from that, the data does not leave that database.</p>
+
+      <h2>Removing Ember, and deleting data</h2>
+      <p>Kicking or banning Ember from a server stops her there immediately — she can no longer see or store anything new from it. The settings and member records she already stored for that server stay in her database until the developer deletes them, because removal by itself does not wipe them.</p>
+      <p>To have a server's data deleted — or your own member record, if you are asking about yourself — contact the developer through the links on <a href="../index.html">tamemaster.com</a> and say which server (or which account) it is about. It will be deleted.</p>
+
+      <h2>Children</h2>
+      <p>Ember is used through Discord, so Discord's own age rules apply: Discord requires its users to be at least 13 years old, and older in some countries. Ember does not knowingly collect anything beyond the Discord account details described above.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>If what Ember stores ever changes, this page will be updated and the date at the top will change with it. The version on this page is always the current one.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="../index.html">Tame Master</a>
+    </div>
+    <p class="fine">Ember is a Discord bot made by the developer behind Tame Master. Not affiliated with Discord Inc.</p>
+  </div>
+</footer>
+
+</body>
+</html>
