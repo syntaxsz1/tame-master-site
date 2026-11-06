@@ -71,7 +71,7 @@
 
   <div class="trust-strip">
     <span class="trust-item"><img src="assets/icons/shield.png" alt="">&#10003; Verified Discord app</span>
-    <span class="trust-item"><img src="assets/icons/team.png" alt="">Live in 10 servers</span>
+    <span class="trust-item"><img src="assets/icons/team.png" alt=""><span id="server-count">Live in 10 servers</span></span>
     <a class="trust-item" href="https://github.com/syntaxsz1/tame-master-policies/blob/main/PRIVACY.md"><img src="assets/icons/book.png" alt="">Privacy Policy</a>
     <a class="trust-item" href="https://github.com/syntaxsz1/tame-master-policies/blob/main/TERMS.md"><img src="assets/icons/gear.png" alt="">Terms of Service</a>
   </div>
@@ -486,6 +486,20 @@
 
   loadBoards()
     .then(function (json) {
+      // Server count is live too: the feed's stats board carries the
+      // bot's current guild count. The hard-coded text above stays as
+      // the fallback if the feed cannot load.
+      var statsRows = (json.boards && json.boards.stats) || [];
+      var scEl = document.getElementById("server-count");
+      if (scEl) {
+        for (var si = 0; si < statsRows.length; si++) {
+          if (statsRows[si].name === "Servers" && statsRows[si].detail) {
+            scEl.textContent = "Live in " + statsRows[si].detail + " servers";
+            break;
+          }
+        }
+      }
+
       // Tournament spotlight renders independently of the boards.
       var tourneySection = document.getElementById("tournament-champion");
       var tourneySlot = document.getElementById("tourney-champion-slot");
