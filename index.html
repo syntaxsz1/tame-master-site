@@ -44,7 +44,7 @@
     <p class="tagline">A monster-taming game that lives inside Discord.</p>
     <div class="hero-buttons">
       <a class="btn btn-blue" href="https://discord.com/oauth2/authorize?client_id=1562046640691609631&amp;permissions=268815360&amp;scope=bot%20applications.commands">Add to Discord</a>
-      <a class="btn btn-ghost" href="https://discord.gg/Mu6UUaxKph">Join the Server</a>
+      <a class="btn btn-ghost" href="https://discord.gg/GYPExCYufj">Join the Server</a>
     </div>
     <div class="hero-sprites" aria-hidden="true">
       <img src="assets/sprites/chirplet.png" alt="" style="height:62px">
@@ -133,6 +133,13 @@
       </div>
     </div>
     <a class="btn btn-ghost" href="leaderboards.html">Full leaderboards</a>
+  </section>
+
+  <section id="supporters" hidden>
+    <h2><img class="hico" src="assets/icons/ballot.png" alt="">Supporters wall</h2>
+    <p class="sub">The tamers who vote for Tame Master on <strong>top.gg</strong> — every verified vote earns a Vote Crate, builds a streak, and puts a name on this wall.</p>
+    <div id="supporters-slot"></div>
+    <a class="btn btn-ghost" href="https://top.gg/bot/1562046640691609631/vote">Vote on top.gg</a>
   </section>
 
   <section id="features">
@@ -320,7 +327,7 @@
       <div class="card">
         <h3>Support server</h3>
         <p>Help, suggestions, bug reports, and the live leaderboards channel.</p>
-        <p style="margin-top:10px;"><a href="https://discord.gg/Mu6UUaxKph">Join the server &rarr;</a></p>
+        <p style="margin-top:10px;"><a href="https://discord.gg/GYPExCYufj">Join the server &rarr;</a></p>
       </div>
     </div>
   </section>
@@ -334,7 +341,7 @@
       <a href="https://github.com/syntaxsz1/tame-master-policies/blob/main/TERMS.md">Terms of Service</a>
       <a href="leaderboards.html">Leaderboards</a>
       <a href="https://www.youtube.com/@TameMasterGame">YouTube</a>
-      <a href="https://discord.gg/Mu6UUaxKph">Support Server</a>
+      <a href="https://discord.gg/GYPExCYufj">Support Server</a>
     </div>
     <p class="fine">Tame Master is a Discord bot game. All monsters are original designs. Not affiliated with Discord Inc.</p>
   </div>
@@ -511,6 +518,24 @@
         if (hallSlot) hallSlot.innerHTML =
           hallHtml(tourney.champions || []);
         tourneySection.hidden = false;
+      }
+
+      // Supporters wall — top verified voters (sync 126).
+      // Renders independently of the coins/arena boards.
+      var supSection = document.getElementById("supporters");
+      var supSlot = document.getElementById("supporters-slot");
+      var voters = (json.boards && json.boards.voters) || [];
+      if (supSection && supSlot && voters.length) {
+        var chips = "";
+        for (var vi = 0; vi < voters.length; vi++) {
+          chips += '<span class="supporter-chip">' +
+            esc(voters[vi].name) +
+            ' <span class="supporter-votes">' +
+            esc(voters[vi].detail) + '</span></span>';
+        }
+        supSlot.innerHTML = '<div class="supporters-wall">' +
+          chips + '</div>';
+        supSection.hidden = false;
       }
 
       var coins = (json.boards && json.boards.coins) || [];

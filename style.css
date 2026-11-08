@@ -431,3 +431,24 @@ a.trust-item:hover { color: var(--text); }
   .champion-card { gap: 14px; padding: 16px; }
   .champion-card .champ-crown { width: 42px; height: 42px; }
 }
+
+/* Supporters wall (sync 126) */
+.supporters-wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 18px;
+}
+.supporter-chip {
+  background: var(--panel);
+  border: 2px solid var(--border);
+  box-shadow: 0 3px 0 var(--edge);
+  padding: 8px 14px;
+  font-weight: 600;
+}
+.supporter-votes {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.85em;
+  margin-left: 6px;
+}

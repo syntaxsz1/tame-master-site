@@ -41,7 +41,7 @@
 <main class="wrap">
   <section>
     <h2><img class="hico" src="assets/icons/trophy.png" alt="">Leaderboards</h2>
-    <p class="sub">The same boards the bot posts live in the <a href="https://discord.gg/Mu6UUaxKph">support server</a>. All boards are global — every server plays on one ladder. This page shows the latest snapshot; the boards update hourly.</p>
+    <p class="sub">The same boards the bot posts live in the <a href="https://discord.gg/GYPExCYufj">support server</a>. All boards are global — every server plays on one ladder. This page shows the latest snapshot; the boards update hourly.</p>
 
     <div class="tabs" id="tabs">
       <button class="tab active" data-board="arena"><img src="assets/icons/trophy.png" alt="">Arena Ladder</button>
@@ -49,6 +49,7 @@
       <button class="tab" data-board="prestige"><img src="assets/icons/crown.png" alt="">Prestige</button>
       <button class="tab" data-board="clan_power"><img src="assets/icons/shield.png" alt="">Clan Power</button>
       <button class="tab" data-board="clan_week"><img src="assets/icons/clanpoints.png" alt="">Clan Points (weekly)</button>
+      <button class="tab" data-board="voters"><img src="assets/icons/ballot.png" alt="">Top Voters</button>
     </div>
 
     <div id="board-area">
@@ -65,7 +66,7 @@
       <a href="https://github.com/syntaxsz1/tame-master-policies/blob/main/TERMS.md">Terms of Service</a>
       <a href="index.html">Home</a>
       <a href="https://www.youtube.com/@TameMasterGame">YouTube</a>
-      <a href="https://discord.gg/Mu6UUaxKph">Support Server</a>
+      <a href="https://discord.gg/GYPExCYufj">Support Server</a>
     </div>
     <p class="fine">Tame Master is a Discord bot game. All monsters are original designs. Not affiliated with Discord Inc.</p>
   </div>
@@ -78,7 +79,8 @@
     coins: "Coins — richest tamers",
     prestige: "Prestige leaders",
     clan_power: "Clan Power — strongest clans",
-    clan_week: "Clan Points — this week"
+    clan_week: "Clan Points — this week",
+    voters: "Top Voters — verified votes"
   };
   var area = document.getElementById("board-area");
   var updatedLine = document.getElementById("updated-line");
@@ -164,7 +166,7 @@
     .catch(function () {
       area.innerHTML = '<div class="empty-box">The boards could not be loaded ' +
         'right now. They are always live in the #leaderboards channel of the ' +
-        '<a href="https://discord.gg/Mu6UUaxKph">support server</a>.</div>';
+        '<a href="https://discord.gg/GYPExCYufj">support server</a>.</div>';
     });
 })();
 </script>
