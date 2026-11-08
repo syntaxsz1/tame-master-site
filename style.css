@@ -424,7 +424,11 @@ a.trust-item:hover { color: var(--text); }
   section { padding: 32px 0 4px; }
   .arena-band { padding: 20px 14px; }
   .brand { font-size: 0.85rem; }
-  nav.main { gap: 12px; }
+  .brand img { width: 28px; height: 28px; }
+  header.site .wrap { gap: 8px; padding-top: 8px; padding-bottom: 8px; }
+  nav.main { margin-left: 0; gap: 8px 14px; }
+  nav.main a { font-size: 0.92rem; }
+  nav.main .btn-small { padding: 6px 10px; font-size: 0.8rem; }
   .hero-inner h1 { font-size: 1.05rem; }
   section h2 { font-size: 0.82rem; }
   .motd-card { flex-direction: column; text-align: center; gap: 12px; padding: 18px 16px; }

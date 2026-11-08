@@ -31,7 +31,10 @@
 .gtable .nums { margin-top: 4px; font-size: .82rem; opacity: .75; }
 .mvico { width: 26px; height: 26px; vertical-align: -7px; margin-right: 8px; }
 .elico { width: 22px; height: 22px; vertical-align: -5px; margin-right: 6px; }
-.chain { font-size: 1.02rem; line-height: 2; }
+.chain { font-size: 1.02rem; line-height: 2.2; }
+.elchip { display: inline-flex; align-items: center; gap: 5px;
+  white-space: nowrap; }
+.elchip .elico { margin-right: 0; }
 .tag { font-size: .72rem; padding: 2px 7px; border: 1px solid var(--edge);
   background: var(--panel2); margin-left: 8px; white-space: nowrap; }
 .howto p { margin: 0 0 8px; }
@@ -39,6 +42,7 @@
   .gtable { font-size: .88rem; }
   .gtable td, .gtable th { padding: 7px 7px; }
   .gtable td.mv { white-space: normal; }
+  .gtable { display: block; overflow-x: auto; }
   .mvico { width: 22px; height: 22px; }
 }
 </style>
@@ -82,7 +86,7 @@
     one element, and weak against one other. A strong hit deals
     <b>&times;1.25</b> damage. A weak hit deals only <b>&times;0.8</b>.
     All other matchups deal normal damage.</p>
-    <p class="chain"><span style="color:#ff7a45"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107735496335490.png?size=96" alt=""><b>Flame</b></span> &rarr; <span style="color:#6bd969"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107746485669929.png?size=96" alt=""><b>Leaf</b></span> &rarr; <span style="color:#4db2ff"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107756883083284.png?size=96" alt=""><b>Tide</b></span> &rarr; <span style="color:#ffd23e"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107762726010881.png?size=96" alt=""><b>Volt</b></span> &rarr; <span style="color:#7fe7f2"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107740827426877.png?size=96" alt=""><b>Frost</b></span> &rarr; <span style="color:#b98cff"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107751422365848.png?size=96" alt=""><b>Shade</b></span> &rarr; and back to <b>Flame</b>. Each
+    <p class="chain"><span class="elchip" style="color:#ff7a45"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107735496335490.png?size=96" alt=""><b>Flame</b></span> &rarr; <span class="elchip" style="color:#6bd969"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107746485669929.png?size=96" alt=""><b>Leaf</b></span> &rarr; <span class="elchip" style="color:#4db2ff"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107756883083284.png?size=96" alt=""><b>Tide</b></span> &rarr; <span class="elchip" style="color:#ffd23e"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107762726010881.png?size=96" alt=""><b>Volt</b></span> &rarr; <span class="elchip" style="color:#7fe7f2"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107740827426877.png?size=96" alt=""><b>Frost</b></span> &rarr; <span class="elchip" style="color:#b98cff"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107751422365848.png?size=96" alt=""><b>Shade</b></span> &rarr; and back to <b>Flame</b>. Each
     element is strong against the next one in the ring.</p>
     <table class="gtable">
       <thead><tr><th>Element</th><th>Strong against (&times;1.25)</th>
