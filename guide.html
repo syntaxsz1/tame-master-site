@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Guide — Moves, Abilities &amp; Elements — Tame Master</title>
+<meta name="description" content="The full Tame Master battle guide: all 61 moves, all 13 abilities, the element chart, and the Lab crafting rules.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tame Master">
+<meta property="og:title" content="Tame Master — Game Guide">
+<meta property="og:description" content="All 61 moves, all 13 abilities, the element chart, and the Lab — the complete battle guide.">
+<meta property="og:image" content="https://tamemaster.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tame Master — Game Guide">
+<meta name="twitter:description" content="All 61 moves, all 13 abilities, the element chart, and the Lab — the complete battle guide.">
+<meta name="twitter:image" content="https://tamemaster.com/assets/og.jpg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="style.css">
+<style>
+.gtable { width: 100%; border-collapse: collapse; margin: 10px 0 22px;
+  background: var(--panel); border: 2px solid var(--edge);
+  box-shadow: var(--px-shadow-sm); font-size: .92rem; }
+.gtable th { text-align: left; padding: 8px 10px; background: var(--panel2);
+  border-bottom: 2px solid var(--edge); white-space: nowrap; }
+.gtable td { padding: 7px 10px; border-top: 1px solid rgba(255,255,255,.06);
+  vertical-align: top; }
+.gtable td.num { text-align: right; font-variant-numeric: tabular-nums;
+  white-space: nowrap; }
+.gtable td.unl { white-space: nowrap; }
+.gtable td.mv { font-weight: 600; white-space: nowrap; }
+.gtable td.fx { min-width: 180px; }
+.mvico { width: 26px; height: 26px; vertical-align: -7px; margin-right: 8px; }
+.elico { width: 22px; height: 22px; vertical-align: -5px; margin-right: 6px; }
+.chart { text-align: center; }
+.chart td, .chart th { text-align: center; }
+.chain { font-size: 1.02rem; line-height: 2; }
+.tag { font-size: .72rem; padding: 2px 7px; border: 1px solid var(--edge);
+  background: var(--panel2); margin-left: 8px; white-space: nowrap; }
+@media (max-width: 640px) {
+  .gtable { font-size: .84rem; }
+  .gtable td, .gtable th { padding: 6px 6px; }
+  .gtable td.mv { white-space: normal; }
+  .gtable td.unl { white-space: normal; }
+  .mvico { width: 22px; height: 22px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/avatar.jpg" alt="Tame Master avatar">
+      Tame Master <span class="check" title="Verified Discord app">&#10003;</span>
+    </a>
+    <nav class="main">
+      <a href="index.html">Home</a>
+      <a href="leaderboards.html">Leaderboards</a>
+      <a href="guide.html" class="active">Guide</a>
+      <a href="index.html#commands">Commands</a>
+      <a href="index.html#premium">Premium</a>
+      <a class="btn btn-blue btn-small" href="https://discord.com/oauth2/authorize?client_id=1562046640691609631&amp;permissions=268815360&amp;scope=bot%20applications.commands">Add to Discord</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2>Game Guide</h2>
+    <p class="sub">Every move, ability and element in the game — the same
+    numbers the battle engine uses. Moves unlock as your monster levels:
+    2 basics from catch, a Strong move at Level 10, and a signature or
+    Apex move at Level 25. A move's power also scales a little with the
+    monster's rarity (Common &times;0.90 up to Divine &times;1.22).</p>
+  </section>
+
+  <section>
+    <h2>Elements</h2>
+    <p class="sub">Six elements in one ring. Hitting the element yours
+    beats deals <b>&times;1.25</b> damage; hitting the element that
+    beats yours deals <b>&times;0.8</b>. Everything else is neutral.</p>
+    <p class="chain"><span style="color:#ff7a45"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107735496335490.png?size=96" alt=""><b>Flame</b></span> &rarr; <span style="color:#6bd969"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107746485669929.png?size=96" alt=""><b>Leaf</b></span> &rarr; <span style="color:#4db2ff"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107756883083284.png?size=96" alt=""><b>Tide</b></span> &rarr; <span style="color:#ffd23e"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107762726010881.png?size=96" alt=""><b>Volt</b></span> &rarr; <span style="color:#7fe7f2"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107740827426877.png?size=96" alt=""><b>Frost</b></span> &rarr; <span style="color:#b98cff"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107751422365848.png?size=96" alt=""><b>Shade</b></span> &rarr; back to <b>Flame</b> — each element
+    beats the next one.</p>
+    <table class="gtable chart">
+      <thead><tr><th>Attacker \ Defender</th><th>Flame</th><th>Leaf</th><th>Tide</th><th>Volt</th><th>Frost</th><th>Shade</th></tr></thead>
+      <tbody><tr><th>Flame</th><td>—</td><td>&times;1.25</td><td>—</td><td>—</td><td>—</td><td>&times;0.8</td></tr><tr><th>Leaf</th><td>&times;0.8</td><td>—</td><td>&times;1.25</td><td>—</td><td>—</td><td>—</td></tr><tr><th>Tide</th><td>—</td><td>&times;0.8</td><td>—</td><td>&times;1.25</td><td>—</td><td>—</td></tr><tr><th>Volt</th><td>—</td><td>—</td><td>&times;0.8</td><td>—</td><td>&times;1.25</td><td>—</td></tr><tr><th>Frost</th><td>—</td><td>—</td><td>—</td><td>&times;0.8</td><td>—</td><td>&times;1.25</td></tr><tr><th>Shade</th><td>&times;1.25</td><td>—</td><td>—</td><td>—</td><td>&times;0.8</td><td>—</td></tr></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Moves by Element</h2>
+    <p class="sub">Every monster learns its own element's kit: two
+    basics from catch, the Strong move at Level 10, and the Apex move
+    at Level 25 (Mythic monsters learn a personal signature instead —
+    those are listed further down).</p>
+    <h3 style="color:#ff7a45"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107735496335490.png?size=96" alt="">Flame</h3>
+    <table class="gtable"><thead><tr><th>Move</th><th>Power</th><th>Acc</th><th>Unlock</th><th>Effect</th></tr></thead><tbody><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451325769814138.png?size=96" alt=""><span>Ember Jab<span class="tag">Basic</span></span></td><td class="num">50</td><td class="num">100</td><td class="unl">From catch</td><td class="fx">—</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451330115239968.png?size=96" alt=""><span>Flame Rush<span class="tag">Basic</span></span></td><td class="num">65</td><td class="num">85</td><td class="unl">From catch</td><td class="fx">—</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451384431349791.png?size=96" alt=""><span>Inferno Fang<span class="tag">Strong</span></span></td><td class="num">80</td><td class="num">90</td><td class="unl">Level 10</td><td class="fx">30% chance to Burn the foe (damage over time for 2 rounds)</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451413162590278.png?size=96" alt=""><span>Cataclysm Fang<span class="tag">Apex</span></span></td><td class="num">95</td><td class="num">90</td><td class="unl">Level 25</td><td class="fx">40% chance to Burn the foe (damage over time for 2 rounds) · Cooldown 3 rounds</td></tr></tbody></table>
+    <h3 style="color:#6bd969"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107746485669929.png?size=96" alt="">Leaf</h3>
+    <table class="gtable"><thead><tr><th>Move</th><th>Power</th><th>Acc</th><th>Unlock</th><th>Effect</th></tr></thead><tbody><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451335030964356.png?size=96" alt=""><span>Vine Snap<span class="tag">Basic</span></span></td><td class="num">50</td><td class="num">100</td><td class="unl">From catch</td><td class="fx">—</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451339598692408.png?size=96" alt=""><span>Thorn Lash<span class="tag">Basic</span></span></td><td class="num">65</td><td class="num">85</td><td class="unl">From catch</td><td class="fx">—</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451388650946594.png?size=96" alt=""><span>Razor Bloom<span class="tag">Strong</span></span></td><td class="num">80</td><td class="num">90</td><td class="unl">Level 10</td><td class="fx">Heals 20% of the damage dealt</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451418216468510.png?size=96" alt=""><span>Verdant Reaper<span class="tag">Apex</span></span></td><td class="num">95</td><td class="num">90</td><td class="unl">Level 25</td><td class="fx">Heals 30% of the damage dealt · Cooldown 3 rounds</td></tr></tbody></table>
+    <h3 style="color:#4db2ff"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107756883083284.png?size=96" alt="">Tide</h3>
+    <table class="gtable"><thead><tr><th>Move</th><th>Power</th><th>Acc</th><th>Unlock</th><th>Effect</th></tr></thead><tbody><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451344510091395.png?size=96" alt=""><span>Aqua Slap<span class="tag">Basic</span></span></td><td class="num">50</td><td class="num">100</td><td class="unl">From catch</td><td class="fx">—</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451349564096607.png?size=96" alt=""><span>Wave Slam<span class="tag">Basic</span></span></td><td class="num">65</td><td class="num">85</td><td class="unl">From catch</td><td class="fx">—</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451393231257732.png?size=96" alt=""><span>Tidal Crash<span class="tag">Strong</span></span></td><td class="num">80</td><td class="num">90</td><td class="unl">Level 10</td><td class="fx">30% chance to lower the foe&#x27;s Speed by 1 stage</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451423144775891.png?size=96" alt=""><span>Leviathan Crash<span class="tag">Apex</span></span></td><td class="num">95</td><td class="num">90</td><td class="unl">Level 25</td><td class="fx">40% chance to lower the foe&#x27;s Speed by 1 stage · Cooldown 3 rounds</td></tr></tbody></table>
+    <h3 style="color:#ffd23e"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107762726010881.png?size=96" alt="">Volt</h3>
+    <table class="gtable"><thead><tr><th>Move</th><th>Power</th><th>Acc</th><th>Unlock</th><th>Effect</th></tr></thead><tbody><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451354383487117.png?size=96" alt=""><span>Spark Nip<span class="tag">Basic</span></span></td><td class="num">50</td><td class="num">100</td><td class="unl">From catch</td><td class="fx">—</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451358946762763.png?size=96" alt=""><span>Thunder Tackle<span class="tag">Basic</span></span></td><td class="num">65</td><td class="num">85</td><td class="unl">From catch</td><td class="fx">—</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451398428004372.png?size=96" alt=""><span>Thunder Jolt<span class="tag">Strong</span></span></td><td class="num">80</td><td class="num">90</td><td class="unl">Level 10</td><td class="fx">20% chance to Stun the foe (it loses its next turn)</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451429125984447.png?size=96" alt=""><span>Tempest Jolt<span class="tag">Apex</span></span></td><td class="num">95</td><td class="num">90</td><td class="unl">Level 25</td><td class="fx">25% chance to Stun the foe (it loses its next turn) · Cooldown 3 rounds</td></tr></tbody></table>
+    <h3 style="color:#7fe7f2"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107740827426877.png?size=96" alt="">Frost</h3>
+    <table class="gtable"><thead><tr><th>Move</th><th>Power</th><th>Acc</th><th>Unlock</th><th>Effect</th></tr></thead><tbody><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451363606761602.png?size=96" alt=""><span>Chill Bite<span class="tag">Basic</span></span></td><td class="num">50</td><td class="num">100</td><td class="unl">From catch</td><td class="fx">—</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451369126334607.png?size=96" alt=""><span>Ice Ram<span class="tag">Basic</span></span></td><td class="num">65</td><td class="num">85</td><td class="unl">From catch</td><td class="fx">—</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451404148772904.png?size=96" alt=""><span>Glacier Fang<span class="tag">Strong</span></span></td><td class="num">80</td><td class="num">90</td><td class="unl">Level 10</td><td class="fx">30% chance to lower the foe&#x27;s Attack by 1 stage</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451433718874293.png?size=96" alt=""><span>Absolute Fang<span class="tag">Apex</span></span></td><td class="num">95</td><td class="num">90</td><td class="unl">Level 25</td><td class="fx">40% chance to lower the foe&#x27;s Attack by 1 stage · Cooldown 3 rounds</td></tr></tbody></table>
+    <h3 style="color:#b98cff"><img class="elico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107751422365848.png?size=96" alt="">Shade</h3>
+    <table class="gtable"><thead><tr><th>Move</th><th>Power</th><th>Acc</th><th>Unlock</th><th>Effect</th></tr></thead><tbody><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451374427938958.png?size=96" alt=""><span>Shadow Swipe<span class="tag">Basic</span></span></td><td class="num">50</td><td class="num">100</td><td class="unl">From catch</td><td class="fx">—</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451379494649947.png?size=96" alt=""><span>Dusk Maul<span class="tag">Basic</span></span></td><td class="num">65</td><td class="num">85</td><td class="unl">From catch</td><td class="fx">—</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451408762507344.png?size=96" alt=""><span>Dread Fang<span class="tag">Strong</span></span></td><td class="num">80</td><td class="num">90</td><td class="unl">Level 10</td><td class="fx">Heals 30% of the damage dealt</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451438474956880.png?size=96" alt=""><span>Nightmare Fang<span class="tag">Apex</span></span></td><td class="num">95</td><td class="num">90</td><td class="unl">Level 25</td><td class="fx">Heals 40% of the damage dealt · Cooldown 3 rounds</td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>Signature Moves</h2>
+    <p class="sub">Each Mythic monster learns one move nobody else
+    has, at Level 25.</p>
+    <table class="gtable"><thead><tr><th>Move</th><th>Power</th><th>Acc</th><th>Unlock</th><th>Effect</th></tr></thead><tbody><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451471320686632.png?size=96" alt=""><span>First Strike<span class="tag">Alphawhelp</span></span></td><td class="num">95</td><td class="num">95</td><td class="unl">Level 25</td><td class="fx">Always moves first in round 1 · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451466664870080.png?size=96" alt=""><span>Gilded Rebirth<span class="tag">Aurenix</span></span></td><td class="num">85</td><td class="num">95</td><td class="unl">Level 25</td><td class="fx">Prepares Gilded Rebirth: if knocked out in the next 2 rounds, revive at 25% HP · Once per fight</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451479671537775.png?size=96" alt=""><span>Starfall Barrage<span class="tag">Celestiwhelp</span></span></td><td class="num">34</td><td class="num">85</td><td class="unl">Level 25</td><td class="fx">Hits 2–4 times · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451484041871403.png?size=96" alt=""><span>Lucid Dream<span class="tag">Dreamwhelp</span></span></td><td class="num">80</td><td class="num">90</td><td class="unl">Level 25</td><td class="fx">40% chance to make the foe Drowsy (it loses its next turn) · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451448273117274.png?size=96" alt=""><span>Second Life<span class="tag">Eternalkit</span></span></td><td class="num">—</td><td class="num">100</td><td class="unl">Level 25</td><td class="fx">Prepares a Second Life: survive the next fatal hit at 1 HP · Once per fight</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451489293406228.png?size=96" alt=""><span>Timeless Fang<span class="tag">Eterniwhelp</span></span></td><td class="num">95</td><td class="num">95</td><td class="unl">Level 25</td><td class="fx">Wipes the foe&#x27;s raised stats (its lowered stats stay) · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451494339018873.png?size=96" alt=""><span>Loaded Dice<span class="tag">Fatewhelp</span></span></td><td class="num">—</td><td class="num">90</td><td class="unl">Level 25</td><td class="fx">Random power between 40 and 140 each use · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451499024195634.png?size=96" alt=""><span>Origin Spores<span class="tag">Genesismoth</span></span></td><td class="num">75</td><td class="num">90</td><td class="unl">Level 25</td><td class="fx">100% chance to cover the foe in Spores (damage over time for 2 rounds) · 100% chance to lower the foe&#x27;s Accuracy by 1 stage · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451452827996274.png?size=96" alt=""><span>First Light<span class="tag">Genesiswhelp</span></span></td><td class="num">90</td><td class="num">95</td><td class="unl">Level 25</td><td class="fx">Resets ALL stat stages on both sides to zero · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451504027996257.png?size=96" alt=""><span>Resonance<span class="tag">Harmoniwhelp</span></span></td><td class="num">80</td><td class="num">95</td><td class="unl">Level 25</td><td class="fx">Heals the whole team for 15% of max HP · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451509778391160.png?size=96" alt=""><span>Endless Loop<span class="tag">Infinitywhelp</span></span></td><td class="num">80</td><td class="num">95</td><td class="unl">Level 25</td><td class="fx">Strikes twice — the second hit lands at half power · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451515465728051.png?size=96" alt=""><span>Confetti Cannon<span class="tag">Jubileewhelp</span></span></td><td class="num">85</td><td class="num">90</td><td class="unl">Level 25</td><td class="fx">+30% critical-hit chance on this hit · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451520138186765.png?size=96" alt=""><span>Prism Shift<span class="tag">Kaleidowhelp</span></span></td><td class="num">90</td><td class="num">95</td><td class="unl">Level 25</td><td class="fx">The hit becomes the element that beats the foe&#x27;s element — always super-effective · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451524600922194.png?size=96" alt=""><span>Blinding Dawn<span class="tag">Luminawhelp</span></span></td><td class="num">85</td><td class="num">95</td><td class="unl">Level 25</td><td class="fx">100% chance to lower the foe&#x27;s Accuracy by 1 stage · 100% chance to raise the user&#x27;s Speed by 1 stage · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451529566986340.png?size=96" alt=""><span>Second Wind<span class="tag">Miraclewhelp</span></span></td><td class="num">—</td><td class="num">100</td><td class="unl">Level 25</td><td class="fx">Heals 30% of max HP, plus up to 30% more the lower the user&#x27;s HP · Once per fight</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451534180712558.png?size=96" alt=""><span>Supernova<span class="tag">Novawhelp</span></span></td><td class="num">115</td><td class="num">85</td><td class="unl">Level 25</td><td class="fx">The user takes 25% recoil damage · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451538471358565.png?size=96" alt=""><span>Last Stand<span class="tag">Omegawhelp</span></span></td><td class="num">70</td><td class="num">95</td><td class="unl">Level 25</td><td class="fx">Up to +45 bonus power as the user&#x27;s HP drops · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451457735327887.png?size=96" alt=""><span>Eternal Bloom<span class="tag">Omnibloom</span></span></td><td class="num">—</td><td class="num">100</td><td class="unl">Level 25</td><td class="fx">Heals 40% of the user&#x27;s max HP · Cleanses the user: clears Burn, Spores and lowered stats · Once per fight</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451542863052880.png?size=96" alt=""><span>Sanctuary<span class="tag">Paradisewhelp</span></span></td><td class="num">—</td><td class="num">100</td><td class="unl">Level 25</td><td class="fx">Raises a shield: take 35% less damage for 3 rounds · Once per fight</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451443298537473.png?size=96" alt=""><span>Prism Shatter<span class="tag">Prismordial</span></span></td><td class="num">100</td><td class="num">90</td><td class="unl">Level 25</td><td class="fx">100% chance to lower the foe&#x27;s Accuracy by 1 stage · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451546499391499.png?size=96" alt=""><span>Quint Rush<span class="tag">Quintwhelp</span></span></td><td class="num">21</td><td class="num">90</td><td class="unl">Level 25</td><td class="fx">Hits 5 times · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451551264120873.png?size=96" alt=""><span>Radiant Burst<span class="tag">Radiantwhelp</span></span></td><td class="num">90</td><td class="num">95</td><td class="unl">Level 25</td><td class="fx">100% chance to raise the user&#x27;s Attack by 1 stage · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451555823321098.png?size=96" alt=""><span>Still Waters<span class="tag">Sereniwhelp</span></span></td><td class="num">70</td><td class="num">95</td><td class="unl">Level 25</td><td class="fx">Heals 12% of the user&#x27;s max HP · Cleanses the user: clears Burn, Spores and lowered stats · 30% chance to lower the foe&#x27;s Attack by 1 stage · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451462315507803.png?size=96" alt=""><span>Void Grasp<span class="tag">Voidwhisper</span></span></td><td class="num">95</td><td class="num">95</td><td class="unl">Level 25</td><td class="fx">Ignores the foe&#x27;s stat stages, Thick Fur and shields — the hit never lands below neutral · Cooldown 3 rounds</td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>Divine Moves</h2>
+    <p class="sub">The three Divine monsters carry their own kits —
+    a named move at Level 10, a utility move at Level 18, and an
+    ultimate at Level 25.</p>
+    <h3>Abyssarch <span class="tag">Tide</span></h3>
+    <table class="gtable"><thead><tr><th>Move</th><th>Power</th><th>Acc</th><th>Unlock</th><th>Effect</th></tr></thead><tbody><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451588995940503.png?size=96" alt=""><span>Crushing Maw</span></td><td class="num">85</td><td class="num">95</td><td class="unl">Level 10</td><td class="fx">Heals 35% of the damage dealt</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451593165340724.png?size=96" alt=""><span>Deep Pressure</span></td><td class="num">60</td><td class="num">95</td><td class="unl">Level 18 — utility</td><td class="fx">Grows stronger every time it lands: +10 power per use, up to +60</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451597707645110.png?size=96" alt=""><span>Event Horizon</span></td><td class="num">115</td><td class="num">85</td><td class="unl">Level 25 — ultimate</td><td class="fx">35% chance to Stun the foe (it loses its next turn) · Cooldown 4 rounds</td></tr></tbody></table>
+    <h3>Seraphim <span class="tag">Frost</span></h3>
+    <table class="gtable"><thead><tr><th>Move</th><th>Power</th><th>Acc</th><th>Unlock</th><th>Effect</th></tr></thead><tbody><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451574982770738.png?size=96" alt=""><span>Halo Strike</span></td><td class="num">75</td><td class="num">100</td><td class="unl">Level 10</td><td class="fx">Moves first (priority)</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451579236057160.png?size=96" alt=""><span>Judgment Feathers</span></td><td class="num">38</td><td class="num">90</td><td class="unl">Level 18 — utility</td><td class="fx">Hits 3 times</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451584151654532.png?size=96" alt=""><span>Six-Wing Descent</span></td><td class="num">110</td><td class="num">90</td><td class="unl">Level 25 — ultimate</td><td class="fx">Heals 50% of the damage dealt · Cooldown 4 rounds</td></tr></tbody></table>
+    <h3>Solarch <span class="tag">Flame</span></h3>
+    <table class="gtable"><thead><tr><th>Move</th><th>Power</th><th>Acc</th><th>Unlock</th><th>Effect</th></tr></thead><tbody><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451560479129640.png?size=96" alt=""><span>Solar Claw</span></td><td class="num">90</td><td class="num">95</td><td class="unl">Level 10</td><td class="fx">30% chance to Burn the foe (damage over time for 2 rounds)</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451564975427715.png?size=96" alt=""><span>Sunflare Roar</span></td><td class="num">70</td><td class="num">100</td><td class="unl">Level 18 — utility</td><td class="fx">100% chance to lower the foe&#x27;s Attack by 1 stage</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1568451570096414882.png?size=96" alt=""><span>Corona Nova</span></td><td class="num">120</td><td class="num">90</td><td class="unl">Level 25 — ultimate</td><td class="fx">30% chance to Burn the foe (damage over time for 2 rounds) · Cooldown 4 rounds</td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>Abilities</h2>
+    <p class="sub">Every monster is born with one ability, rolled when
+    it is caught. Abilities are always on — no button to press.</p>
+    <table class="gtable">
+      <thead><tr><th>Ability</th><th>Effect</th></tr></thead>
+      <tbody><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107674947354827.png?size=96" alt=""><span>Thick Fur</span></td><td class="fx">takes 12% less damage</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107719524548809.png?size=96" alt=""><span>Thorns</span></td><td class="fx">attackers take 3 damage back</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107709391118386.png?size=96" alt=""><span>Regen</span></td><td class="fx">heals 4 HP every round</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107669226594304.png?size=96" alt=""><span>Endure</span></td><td class="fx">survives one fatal hit at 1 HP</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107652138995924.png?size=96" alt=""><span>Ambush</span></td><td class="fx">first hit deals +30% damage</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107658006565017.png?size=96" alt=""><span>Berserk</span></td><td class="fx">+25% damage while below 30% HP</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107696577646675.png?size=96" alt=""><span>Momentum</span></td><td class="fx">+4% damage every hit, stacking</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107714638192870.png?size=96" alt=""><span>Heavy Slam</span></td><td class="fx">every 3rd hit deals +50% damage</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107685420793899.png?size=96" alt=""><span>Lifesteal</span></td><td class="fx">heals 20% of damage dealt</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107691196223532.png?size=96" alt=""><span>Lucky Paw</span></td><td class="fx">10% chance to dodge a hit</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107663673335988.png?size=96" alt=""><span>Crit Fang</span></td><td class="fx">+15% critical chance (crits deal 1.5x)</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1566107703401521322.png?size=96" alt=""><span>Rally</span></td><td class="fx">when it falls, the next teammate hits +15% harder</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1569098532336570399.png?size=96" alt=""><span>Swift</span><span class="tag">Lab craft only</span></td><td class="fx">+10% speed in battle</td></tr></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>The Lab — Crafting</h2>
+    <p class="sub">At Level 25 a monster can be crafted in the Lab
+    (the Craft button on its page, or in Arena Prep). Crafting feeds
+    other monsters to the crafter — fed monsters are gone forever —
+    and what it gets is <b>permanent</b>: it can never be removed or
+    replaced. Crafted monsters carry the flask mark and can be sold
+    on the marketplace with their crafts. A monster's float never
+    changes.</p>
+    <table class="gtable">
+      <thead><tr><th>Craft</th><th>Cost</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td class="mv">Graft a Move</td><td class="unl">Feed 1 monster</td>
+        <td class="fx">Steal one element-kit move the fed monster knows — any element. Signatures and Divine moves can never be grafted.</td></tr>
+        <tr><td class="mv">Swap Ability</td><td class="unl">Feed 1 monster</td>
+        <td class="fx">Take the fed monster's born ability as this monster's ability.</td></tr>
+        <tr><td class="mv">Special Move</td><td class="unl">Feed 3 monsters</td>
+        <td class="fx">Pick one of the 4 Lab specials below.</td></tr>
+        <tr><td class="mv">Swift Ability</td><td class="unl">Feed 3 monsters</td>
+        <td class="fx">Gain Swift: +10% Speed in battle. No monster is born with it.</td></tr>
+      </tbody>
+    </table>
+    <h3>Lab Special Moves</h3>
+    <table class="gtable"><thead><tr><th>Move</th><th>Power</th><th>Acc</th><th>Unlock</th><th>Effect</th></tr></thead><tbody><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1569098516830228580.png?size=96" alt=""><span>Counter Stance</span></td><td class="num">—</td><td class="num">100</td><td class="unl">Lab craft</td><td class="fx">Brace for the next hit: it deals half damage, then strike back at 65 power · Cooldown 3 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1569098520982585556.png?size=96" alt=""><span>Charged Blast</span></td><td class="num">—</td><td class="num">100</td><td class="unl">Lab craft</td><td class="fx">Spend one turn charging, then unleash the blast at 150 power (90% accuracy) · Cooldown 4 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1569098524380110932.png?size=96" alt=""><span>Aegis Shield</span></td><td class="num">—</td><td class="num">100</td><td class="unl">Lab craft</td><td class="fx">Raises a shield: take 40% less damage for 2 rounds · Cooldown 4 rounds</td></tr><tr><td class="mv"><img class="mvico" loading="lazy" src="https://cdn.discordapp.com/emojis/1569098528477683834.png?size=96" alt=""><span>Desperate Blow</span></td><td class="num">55</td><td class="num">95</td><td class="unl">Lab craft</td><td class="fx">Up to +65 bonus power as the user&#x27;s HP drops · Cooldown 3 rounds</td></tr></tbody></table>
+    <p class="sub">You can't feed a shiny, a Divine, a placed monster,
+    a listed monster, a monster on an Arena team, or the monster
+    itself. One crafted move and one crafted ability per monster —
+    choose well.</p>
+  </section>
+
+  <section>
+    <p class="sub">New here? <a href="index.html">Start on the homepage</a>,
+    or open the bot and type <b>/start</b>.</p>
+  </section>
+</main>
+
+</body>
+</html>
